@@ -29,3 +29,9 @@ def trainer_profile(request, trainer_id):
 
 def staff_list(request):
     return render(request, 'trainers/staff_list.html')
+
+def payment_dashboard(request):
+    return render(request, 'finance/payments.html')
+
+def analytics_dashboard(request):
+    return render(request, 'finance/analytics.html')

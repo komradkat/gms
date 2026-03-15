@@ -4,7 +4,7 @@ from core.views import (
     dashboard, login_view, register_view, 
     member_list, member_profile, member_create,
     schedule_view, trainer_list, trainer_profile,
-    staff_list
+    staff_list, payment_dashboard, analytics_dashboard
 )
 
 urlpatterns = [
@@ -19,4 +19,6 @@ urlpatterns = [
     path('trainers/', trainer_list, name='trainer_list'),
     path('trainers/<int:trainer_id>/', trainer_profile, name='trainer_profile'),
     path('staff/', staff_list, name='staff_list'),
+    path('payments/', payment_dashboard, name='payment_dashboard'),
+    path('analytics/', analytics_dashboard, name='analytics_dashboard'),
 ]

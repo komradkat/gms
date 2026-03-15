@@ -36,11 +36,11 @@
         <!-- Section: Finance -->
         <div class="space-y-1">
             <div class="px-4 mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-600">Finance & Data</div>
-            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+            <a href="{% url 'payment_dashboard' %}" class="{% if request.resolver_match.url_name == 'payment_dashboard' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
                 <i class="fa-solid fa-file-invoice-dollar w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
                 <span class="uppercase tracking-widest">Payments</span>
             </a>
-            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+            <a href="{% url 'analytics_dashboard' %}" class="{% if request.resolver_match.url_name == 'analytics_dashboard' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
                 <i class="fa-solid fa-chart-line w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
                 <span class="uppercase tracking-widest">Analytics</span>
             </a>
