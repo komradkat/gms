@@ -1,0 +1,63 @@
+<div class="w-72 bg-zinc-900 border-r border-zinc-800 flex flex-col" x-show="sidebarOpen">
+    <!-- Logo -->
+    <div class="px-8 py-8 border-b border-zinc-800 flex items-center gap-3">
+        <div class="w-10 h-10 bg-yellow-400 rounded-2xl flex items-center justify-center text-zinc-950 font-bold text-3xl logo-font">G</div>
+        <div>
+            <span class="text-3xl font-semibold tracking-tighter logo-font">GymForge</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 px-3 py-6 space-y-1">
+        <a href="{% url 'dashboard' %}" 
+            class="{% if request.resolver_match.url_name == 'dashboard' %}active-link{% endif %} flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-gauge w-5"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-users w-5"></i>
+            <span>Members <span class="ml-auto bg-emerald-500 text-[10px] px-2 py-0.5 rounded-full">1,284</span></span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-calendar-days w-5"></i>
+            <span>Classes &amp; Schedule</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-dumbbell w-5"></i>
+            <span>Trainers</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-credit-card w-5"></i>
+            <span>Payments</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-chart-line w-5"></i>
+            <span>Analytics</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+            <i class="fa-solid fa-boxes-stacked w-5"></i>
+            <span>Equipment</span>
+        </a>
+    </nav>
+
+    <!-- Bottom section -->
+    <div class="p-6 border-t border-zinc-800">
+        <div class="bg-zinc-800 rounded-3xl p-5 text-sm">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-zinc-400">Today’s Occupancy</span>
+                <span class="font-semibold text-emerald-400">87%</span>
+            </div>
+            <div class="h-2 bg-zinc-700 rounded-full overflow-hidden">
+                <div class="h-full w-[87%] bg-gradient-to-r from-emerald-400 to-yellow-400 rounded-full"></div>
+            </div>
+        </div>
+
+        <div class="mt-8 flex items-center gap-3">
+            <div class="w-9 h-9 bg-zinc-700 rounded-2xl flex items-center justify-center text-xl">👟</div>
+            <div>
+                <div class="font-medium">Sean Lloyd Harold</div>
+                <div class="text-xs text-zinc-500">Owner • Cebu City</div>
+            </div>
+        </div>
+    </div>
+</div>
