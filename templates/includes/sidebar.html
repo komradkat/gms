@@ -10,7 +10,7 @@
             <i class="fa-solid fa-users w-5"></i>
             <span>Members <span class="ml-auto bg-emerald-500 text-[10px] px-2 py-0.5 rounded-full">1,284</span></span>
         </a>
-        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
+        <a href="{% url 'schedule' %}" class="{% if request.resolver_match.url_name == 'schedule' %}active-link{% endif %} flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
             <i class="fa-solid fa-calendar-days w-5"></i>
             <span>Classes &amp; Schedule</span>
         </a>

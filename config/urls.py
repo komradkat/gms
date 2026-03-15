@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from core.views import (
     dashboard, login_view, register_view, 
-    member_list, member_profile, member_create
+    member_list, member_profile, member_create,
+    schedule_view
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('members/', member_list, name='member_list'),
     path('members/add/', member_create, name='member_create'),
     path('members/<int:member_id>/', member_profile, name='member_profile'),
+    path('schedule/', schedule_view, name='schedule'),
 ]

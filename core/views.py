@@ -17,3 +17,6 @@ def member_profile(request, member_id):
 
 def member_create(request):
     return render(request, 'members/create.html')
+
+def schedule_view(request):
+    return render(request, 'classes/schedule.html')
