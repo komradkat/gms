@@ -70,19 +70,19 @@
 </head>
 
 <body class="tail-container bg-zinc-950 text-zinc-200 h-full overflow-hidden" x-data="{ sidebarOpen: true, addModalOpen: false }">
-    <div class="flex h-screen">
-        <!-- SIDEBAR -->
-        {% include 'includes/sidebar.html' %}
+    <div class="flex flex-col h-screen overflow-hidden">
+        <!-- TOP BAR -->
+        {% include 'includes/topbar.html' %}
 
-        <!-- MAIN CONTENT -->
-        <div class="flex-1 flex flex-col">
-            <!-- TOP BAR -->
-            {% include 'includes/topbar.html' %}
+        <!-- MAIN BODY (Sidebar + Content) -->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- SIDEBAR -->
+            {% include 'includes/sidebar.html' %}
 
             <!-- CONTENT BODY -->
-            <div class="flex-1 overflow-auto p-8 bg-zinc-950">
+            <main class="flex-1 overflow-auto p-8 bg-zinc-950">
                 {% block content %}{% endblock %}
-            </div>
+            </main>
         </div>
     </div>
 
