@@ -20,3 +20,12 @@ def member_create(request):
 
 def schedule_view(request):
     return render(request, 'classes/schedule.html')
+
+def trainer_list(request):
+    return render(request, 'trainers/list.html')
+
+def trainer_profile(request, trainer_id):
+    return render(request, 'trainers/profile.html')
+
+def staff_list(request):
+    return render(request, 'trainers/staff_list.html')

@@ -1,35 +1,50 @@
 <div class="w-72 bg-zinc-900 border-r border-zinc-800 flex flex-col" x-show="sidebarOpen">
     <!-- Navigation -->
-    <nav class="flex-1 px-3 py-6 space-y-1">
-        <a href="{% url 'dashboard' %}" 
-            class="{% if request.resolver_match.url_name == 'dashboard' %}active-link{% endif %} flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-gauge w-5"></i>
-            <span>Dashboard</span>
-        </a>
-        <a href="{% url 'member_list' %}" class="{% if request.resolver_match.url_name == 'member_list' %}active-link{% endif %} flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-users w-5"></i>
-            <span>Members <span class="ml-auto bg-emerald-500 text-[10px] px-2 py-0.5 rounded-full">1,284</span></span>
-        </a>
-        <a href="{% url 'schedule' %}" class="{% if request.resolver_match.url_name == 'schedule' %}active-link{% endif %} flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-calendar-days w-5"></i>
-            <span>Classes &amp; Schedule</span>
-        </a>
-        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-dumbbell w-5"></i>
-            <span>Trainers</span>
-        </a>
-        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-credit-card w-5"></i>
-            <span>Payments</span>
-        </a>
-        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-chart-line w-5"></i>
-            <span>Analytics</span>
-        </a>
-        <a href="#" class="flex items-center gap-3 px-6 py-4 rounded-2xl text-sm font-medium sidebar-link">
-            <i class="fa-solid fa-boxes-stacked w-5"></i>
-            <span>Equipment</span>
-        </a>
+    <nav class="flex-1 px-4 py-6 space-y-8 overflow-y-auto custom-scrollbar">
+        <!-- Section: Core -->
+        <div class="space-y-1">
+            <div class="px-4 mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-600">Core Operations</div>
+            <a href="{% url 'dashboard' %}" 
+                class="{% if request.resolver_match.url_name == 'dashboard' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-gauge-high w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Dashboard</span>
+            </a>
+            <a href="{% url 'member_list' %}" class="{% if request.resolver_match.url_name == 'member_list' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-users-gear w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Members</span>
+                <span class="ml-auto bg-zinc-800 text-[9px] font-black px-2 py-0.5 rounded-md text-zinc-500 group-hover:bg-yellow-400 group-hover:text-zinc-950 transition-all">1.2K</span>
+            </a>
+            <a href="{% url 'schedule' %}" class="{% if request.resolver_match.url_name == 'schedule' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-calendar-day w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Timetable</span>
+            </a>
+        </div>
+
+        <!-- Section: HR & Staff -->
+        <div class="space-y-1">
+            <div class="px-4 mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-600">Staff Management</div>
+            <a href="{% url 'trainer_list' %}" class="{% if request.resolver_match.url_name == 'trainer_list' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-dumbbell w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Instructors</span>
+            </a>
+            <a href="{% url 'staff_list' %}" class="{% if request.resolver_match.url_name == 'staff_list' %}active-link{% endif %} flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-user-tie w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Admin Staff</span>
+            </a>
+        </div>
+
+        <!-- Section: Finance -->
+        <div class="space-y-1">
+            <div class="px-4 mb-3 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-600">Finance & Data</div>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-file-invoice-dollar w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Payments</span>
+            </a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-[13px] font-bold sidebar-link transition-all group">
+                <i class="fa-solid fa-chart-line w-5 text-zinc-500 group-hover:text-yellow-400 transition-colors"></i>
+                <span class="uppercase tracking-widest">Analytics</span>
+            </a>
+        </div>
     </nav>
 
     <!-- Bottom section -->

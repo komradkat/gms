@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Trainer Profile • GymForge GMS{% endblock %}
+
+{% block content %}
+<div class="space-y-8" x-data="{ activeTab: 'overview' }">
+    <!-- Header / Breadcrumbs -->
+    <div class="flex items-center gap-4">
+        <a href="{% url 'trainer_list' %}" class="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center text-zinc-500 hover:text-yellow-400 transition-colors">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Staff Directory</div>
+            <h1 class="text-3xl font-bold tracking-tight text-white italic">Trainer Profile</h1>
+        </div>
+    </div>
+
+    <!-- Profile Header Card -->
+    <div class="relative bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+        
+        <div class="relative flex flex-col lg:flex-row gap-12 items-center lg:items-end">
+            <!-- Large Avatar -->
+            <div class="w-48 h-48 rounded-[3rem] bg-zinc-800 p-1.5 border-2 border-zinc-700/50 shadow-2xl skew-y-2">
+                <img src="https://ui-avatars.com/api/?name=Marcus+Vane&size=300&background=27272a&color=a1a1aa" class="w-full h-full rounded-[2.5rem] object-cover" alt="Trainer Large">
+            </div>
+
+            <!-- Header Info -->
+            <div class="flex-1 text-center lg:text-left space-y-4">
+                <div class="flex flex-wrap justify-center lg:justify-start gap-2">
+                    <span class="px-3 py-1 bg-yellow-400/10 text-yellow-400 text-[10px] font-black uppercase tracking-widest rounded-lg">Master Trainer</span>
+                    <span class="px-3 py-1 bg-emerald-400/10 text-emerald-400 text-[10px] font-black uppercase tracking-widest rounded-lg">Active Now</span>
+                </div>
+                <h1 class="text-5xl font-black text-white italic tracking-tight">Marcus Vane</h1>
+                <p class="text-zinc-500 max-w-xl text-sm leading-relaxed">
+                    Specializing in elite-level powerlifting and metabolic conditioning with over 8 years of experience building champions in Cebu. Certified IFBB coach.
+                </p>
+                
+                <div class="flex items-center justify-center lg:justify-start gap-8 pt-4">
+                    <div>
+                        <div class="text-2xl font-black text-yellow-400 italic">4.9/5</div>
+                        <div class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600">Client Rating</div>
+                    </div>
+                    <div class="w-px h-8 bg-zinc-800"></div>
+                    <div>
+                        <div class="text-2xl font-black text-zinc-200 italic">124</div>
+                        <div class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600">Active Students</div>
+                    </div>
+                    <div class="w-px h-8 bg-zinc-800"></div>
+                    <div>
+                        <div class="text-2xl font-black text-zinc-200 italic">12</div>
+                        <div class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600">Classes / Week</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex lg:flex-col gap-3">
+                <button class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-4 rounded-2xl text-xs font-black transition-all shadow-xl shadow-yellow-400/10 active:scale-95 uppercase tracking-widest">
+                    Edit Profile
+                </button>
+                <button class="bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white px-8 py-4 rounded-2xl text-xs font-black transition-all border border-zinc-700 uppercase tracking-widest">
+                    Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex items-center p-1.5 bg-zinc-900 border border-zinc-800 rounded-[2rem] max-w-2xl">
+        <button @click="activeTab = 'overview'" 
+                :class="activeTab === 'overview' ? 'bg-zinc-800 text-yellow-400 shadow-xl' : 'text-zinc-500 hover:text-zinc-300'"
+                class="flex-1 py-3 px-6 rounded-[1.5rem] text-[10px] font-black uppercase tracking-[0.2em] transition-all">
+            Overview & Stats
+        </button>
+        <button @click="activeTab = 'schedule'" 
+                :class="activeTab === 'schedule' ? 'bg-zinc-800 text-yellow-400 shadow-xl' : 'text-zinc-500 hover:text-zinc-300'"
+                class="flex-1 py-3 px-6 rounded-[1.5rem] text-[10px] font-black uppercase tracking-[0.2em] transition-all">
+            Weekly Schedule
+        </button>
+        <button @click="activeTab = 'feedback'" 
+                :class="activeTab === 'feedback' ? 'bg-zinc-800 text-yellow-400 shadow-xl' : 'text-zinc-500 hover:text-zinc-300'"
+                class="flex-1 py-3 px-6 rounded-[1.5rem] text-[10px] font-black uppercase tracking-[0.2em] transition-all">
+            Student Feedback
+        </button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Content Area -->
+        <div class="lg:col-span-2 space-y-8">
+            <div x-show="activeTab === 'overview'" x-transition class="space-y-8">
+                <!-- Certifications -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-10">
+                    <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400 mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-certificate text-yellow-400"></i> Certifications & Expertise
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-zinc-950/50 border border-zinc-800 rounded-2xl flex items-center gap-4">
+                            <div class="w-10 h-10 bg-zinc-800 rounded-xl flex items-center justify-center text-zinc-500"><i class="fa-solid fa-award"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-zinc-200 uppercase tracking-tighter">IFBB Elite Pro Coach</div>
+                                <div class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest mt-0.5">National Level</div>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-zinc-950/50 border border-zinc-800 rounded-2xl flex items-center gap-4">
+                            <div class="w-10 h-10 bg-zinc-800 rounded-xl flex items-center justify-center text-zinc-500"><i class="fa-solid fa-medal"></i></div>
+                            <div>
+                                <div class="text-xs font-bold text-zinc-200 uppercase tracking-tighter">NASM Strength Certified</div>
+                                <div class="text-[9px] text-zinc-600 font-bold uppercase tracking-widest mt-0.5">International</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Performance Graph Placeholder -->
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-10 h-80 flex flex-col items-center justify-center text-center">
+                    <div class="w-16 h-16 bg-zinc-800 rounded-3xl flex items-center justify-center text-zinc-600 mb-4">
+                        <i class="fa-solid fa-chart-area text-2xl"></i>
+                    </div>
+                    <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400">Class Performance Analytics</h3>
+                    <p class="text-zinc-600 text-xs mt-1">Growth and attendance trends for Marcus Vane's classes.</p>
+                </div>
+            </div>
+
+            <div x-show="activeTab === 'schedule'" x-transition>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-10 text-center py-20">
+                     <i class="fa-solid fa-calendar-alt text-4xl text-zinc-800 mb-6"></i>
+                     <h3 class="text-xl font-bold text-zinc-400 italic">Detailed Schedule Loading...</h3>
+                </div>
+            </div>
+
+            <div x-show="activeTab === 'feedback'" x-transition>
+                <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-10 text-center py-20">
+                     <i class="fa-solid fa-comment-dots text-4xl text-zinc-800 mb-6"></i>
+                     <h3 class="text-xl font-bold text-zinc-400 italic">No new student feedback this week.</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Quick info -->
+        <div class="space-y-6">
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-8">
+                <h3 class="text-xs font-black uppercase tracking-widest text-zinc-500 mb-6">Quick Actions</h3>
+                <div class="space-y-3">
+                    <button class="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-800/30 border border-zinc-800 hover:border-yellow-400/30 group transition-all">
+                        <span class="text-xs font-bold text-zinc-400 group-hover:text-zinc-200 transition-colors uppercase tracking-[0.1em]">Assign to Class</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-zinc-700 group-hover:text-yellow-400 transition-all"></i>
+                    </button>
+                    <button class="w-full flex items-center justify-between p-4 rounded-2xl bg-zinc-800/30 border border-zinc-800 hover:border-yellow-400/30 group transition-all">
+                        <span class="text-xs font-bold text-zinc-400 group-hover:text-zinc-200 transition-colors uppercase tracking-[0.1em]">Adjust Salary Rate</span>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-zinc-700 group-hover:text-yellow-400 transition-all"></i>
+                    </button>
+                    <button class="w-full flex items-center justify-between p-4 rounded-2xl bg-red-400/5 border border-red-900/20 hover:bg-red-400/10 group transition-all">
+                        <span class="text-xs font-bold text-red-400/80 group-hover:text-red-400 transition-colors uppercase tracking-[0.1em]">Suspend Staff</span>
+                        <i class="fa-solid fa-ban text-[10px] text-red-900/50 group-hover:text-red-500 transition-all"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-8">
+                 <h3 class="text-xs font-black uppercase tracking-widest text-zinc-500 mb-4 italic">Next Session</h3>
+                 <div class="p-6 bg-yellow-400 rounded-3xl text-zinc-950 shadow-xl shadow-yellow-400/10">
+                    <div class="text-[9px] font-black uppercase tracking-[0.2em] mb-3">Today • 04:00 PM</div>
+                    <div class="text-xl font-black italic leading-none mb-1">Power Lifting Elite</div>
+                    <div class="text-[10px] font-black uppercase text-zinc-900/60 tracking-widest">Main Weight Room</div>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Trainers & Staff • GymForge GMS{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header Section -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Elite Instructors</div>
+            <h1 class="text-3xl font-bold tracking-tight text-white italic">Trainers & Staff</h1>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="bg-zinc-900 border border-zinc-800 text-zinc-400 px-6 py-3 rounded-2xl text-xs font-bold hover:text-white transition-all">
+                <i class="fa-solid fa-filter mr-2"></i>Filter Specialty
+            </button>
+            <button class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-lg shadow-yellow-400/10 active:scale-95 uppercase tracking-widest">
+                <i class="fa-solid fa-plus mr-2"></i>Add Staff
+            </button>
+        </div>
+    </div>
+
+    <!-- Trainers Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Trainer Card 1 -->
+        <a href="#" class="group relative bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-8 hover:border-yellow-400/40 transition-all overflow-hidden flex flex-col items-center text-center">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-yellow-400/10 transition-all"></div>
+            
+            <!-- Avatar -->
+            <div class="relative mb-6">
+                <div class="w-28 h-28 rounded-[2rem] bg-zinc-800 p-1 border border-zinc-700 group-hover:border-yellow-400/50 transition-all rotate-3 group-hover:rotate-0">
+                    <img src="https://ui-avatars.com/api/?name=Marcus+Vane&size=200&background=27272a&color=a1a1aa" class="w-full h-full rounded-[1.8rem] object-cover" alt="Trainer">
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-emerald-500 w-6 h-6 rounded-lg border-4 border-zinc-900 flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-white shadow-sm"></div>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="space-y-1 mb-6">
+                <h3 class="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors italic">Marcus Vane</h3>
+                <div class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Head Strength Coach</div>
+            </div>
+
+            <!-- Specialties -->
+            <div class="flex flex-wrap justify-center gap-1.5 mb-8">
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Bodybuilding</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Powerlifting</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">HIIT</span>
+            </div>
+
+            <!-- Stats -->
+            <div class="w-full grid grid-cols-3 gap-2 pt-6 border-t border-zinc-800">
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">4.9</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Rating</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">120+</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Clients</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">8 yrs</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Exp.</div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Trainer Card 2 -->
+        <a href="#" class="group relative bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-8 hover:border-emerald-400/40 transition-all overflow-hidden flex flex-col items-center text-center">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-emerald-400/10 transition-all"></div>
+            
+            <div class="relative mb-6">
+                <div class="w-28 h-28 rounded-[2rem] bg-zinc-800 p-1 border border-zinc-700 group-hover:border-emerald-400/50 transition-all -rotate-3 group-hover:rotate-0">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Chen&size=200&background=27272a&color=a1a1aa" class="w-full h-full rounded-[1.8rem] object-cover" alt="Trainer">
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-emerald-500 w-6 h-6 rounded-lg border-4 border-zinc-900 flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-white shadow-sm"></div>
+                </div>
+            </div>
+
+            <div class="space-y-1 mb-6">
+                <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors italic">Sarah Chen</h3>
+                <div class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Yoga & Mobility Master</div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-1.5 mb-8">
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Vinyasa</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Pilates</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Flexibility</span>
+            </div>
+
+            <div class="w-full grid grid-cols-3 gap-2 pt-6 border-t border-zinc-800">
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">5.0</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Rating</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">85+</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Clients</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">5 yrs</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Exp.</div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Trainer Card 3 -->
+        <a href="#" class="group relative bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] p-8 hover:border-red-400/40 transition-all overflow-hidden flex flex-col items-center text-center">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-red-400/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-red-400/10 transition-all"></div>
+            
+            <div class="relative mb-6">
+                <div class="w-28 h-28 rounded-[2rem] bg-zinc-800 p-1 border border-zinc-700 group-hover:border-red-400/50 transition-all rotate-3 group-hover:rotate-0">
+                    <img src="https://ui-avatars.com/api/?name=Cody+Garrett&size=200&background=27272a&color=a1a1aa" class="w-full h-full rounded-[1.8rem] object-cover" alt="Trainer">
+                </div>
+                <div class="absolute -bottom-2 -right-2 bg-zinc-500 w-6 h-6 rounded-lg border-4 border-zinc-900 flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-white shadow-sm opacity-50"></div>
+                </div>
+            </div>
+
+            <div class="space-y-1 mb-6">
+                <h3 class="text-xl font-bold text-white group-hover:text-red-400 transition-colors italic">Cody Garrett</h3>
+                <div class="text-[10px] font-black uppercase tracking-widest text-zinc-500">MMA & Boxing Pro</div>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-1.5 mb-8">
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Muay Thai</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">BJJ</span>
+                <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-tighter rounded-md border border-zinc-700">Conditioning</span>
+            </div>
+
+            <div class="w-full grid grid-cols-3 gap-2 pt-6 border-t border-zinc-800">
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">4.8</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Rating</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">64+</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Clients</div>
+                </div>
+                <div>
+                    <div class="text-sm font-black text-zinc-200 italic">12 yrs</div>
+                    <div class="text-[8px] font-black uppercase text-zinc-600 tracking-tighter">Exp.</div>
+                </div>
+            </div>
+        </a>
+
+        <!-- Add Staff Slot -->
+        <div class="group relative bg-zinc-900/10 border-2 border-dashed border-zinc-800 rounded-[2.5rem] p-8 hover:border-zinc-700 hover:bg-zinc-900/20 transition-all flex flex-col items-center justify-center cursor-pointer min-h-[400px]">
+            <div class="w-16 h-16 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-600 group-hover:text-yellow-400 group-hover:scale-110 transition-all">
+                <i class="fa-solid fa-plus text-xl"></i>
+            </div>
+            <div class="mt-4 text-center">
+                <div class="text-sm font-bold text-zinc-500">Add New Staff</div>
+                <div class="text-[10px] text-zinc-600 mt-1 uppercase tracking-widest">Trainer or Admin</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

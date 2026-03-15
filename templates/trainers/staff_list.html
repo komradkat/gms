@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Administrative Staff • GymForge GMS{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Header Section -->
+    <div class="flex items-center justify-between">
+        <div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Administrative Team</div>
+            <h1 class="text-3xl font-bold tracking-tight text-white italic">Internal Staff</h1>
+        </div>
+        <div class="flex items-center gap-3">
+            <button class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-lg shadow-yellow-400/10 active:scale-95 uppercase tracking-widest">
+                <i class="fa-solid fa-user-plus mr-2"></i>Register Staff
+            </button>
+        </div>
+    </div>
+
+    <!-- Staff Table -->
+    <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] overflow-hidden">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="border-b border-zinc-800/50">
+                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-zinc-600">Staff Member</th>
+                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-zinc-600">Role & Access</th>
+                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-zinc-600">Schedule</th>
+                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-zinc-600">Status</th>
+                    <th class="px-8 py-6 text-[10px] font-black uppercase tracking-widest text-zinc-600 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/30">
+                <tr class="group hover:bg-zinc-800/30 transition-colors">
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Elena+Rodriguez&background=27272a&color=a1a1aa" class="w-10 h-10 rounded-xl border border-zinc-800" alt="Staff">
+                            <div>
+                                <div class="text-sm font-bold text-zinc-200">Elena Rodriguez</div>
+                                <div class="text-[10px] text-zinc-600 font-bold uppercase tracking-tighter">elena.r@gymforge.test</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6">
+                        <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-zinc-700">General Manager</span>
+                    </td>
+                    <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">FULL-TIME</td>
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-zinc-400">On-Duty</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6 text-right">
+                        <button class="text-zinc-500 hover:text-white transition-colors"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    </td>
+                </tr>
+                <tr class="group hover:bg-zinc-800/30 transition-colors">
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-4">
+                            <img src="https://ui-avatars.com/api/?name=Liam+O-Connell&background=27272a&color=a1a1aa" class="w-10 h-10 rounded-xl border border-zinc-800" alt="Staff">
+                            <div>
+                                <div class="text-sm font-bold text-zinc-200">Liam O'Connell</div>
+                                <div class="text-[10px] text-zinc-600 font-bold uppercase tracking-tighter">liam.o@gymforge.test</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6">
+                        <span class="px-2.5 py-1 bg-zinc-800 text-zinc-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-zinc-700">Reception Lead</span>
+                    </td>
+                    <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">PART-TIME</td>
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
+                            <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600">Off-Shift</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6 text-right">
+                        <button class="text-zinc-500 hover:text-white transition-colors"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
