@@ -29,12 +29,12 @@
             <span class="absolute -top-1 -right-1 bg-red-500 text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full text-white ring-2 ring-zinc-900">3</span>
         </div>
 
-        <!-- Quick add -->
-        <button @click="addModalOpen = true"
-            class="bg-yellow-400 hover:bg-yellow-300 transition-all text-zinc-950 font-bold px-8 py-3 rounded-3xl flex items-center gap-2 text-sm shadow-lg shadow-yellow-400/10 active:scale-95">
+        <!-- Add Member Button -->
+        <a href="{% url 'member_create' %}" 
+           class="hidden lg:flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-6 py-2.5 rounded-2xl font-black text-sm transition-all shadow-lg shadow-yellow-400/10 active:scale-95">
             <i class="fa-solid fa-plus"></i>
             <span>Add Member</span>
-        </button>
+        </a>
 
         <!-- Profile -->
         <div class="flex items-center gap-4 border-l border-zinc-800 pl-8">

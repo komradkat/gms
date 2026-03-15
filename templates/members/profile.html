@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Member Profile • GymForge GMS{% endblock %}
+
+{% block content %}
+<div class="space-y-8" x-data="{ activeTab: 'overview' }">
+    <!-- Breadcrumbs & Back -->
+    <div class="flex items-center gap-4">
+        <a href="{% url 'member_list' %}" class="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center text-zinc-500 hover:text-yellow-400 transition-colors">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+        <div class="text-xs font-bold uppercase tracking-widest text-zinc-500">
+            <a href="{% url 'member_list' %}" class="hover:text-zinc-300">Members</a>
+            <span class="mx-2">/</span>
+            <span class="text-zinc-300">Maria Santos</span>
+        </div>
+    </div>
+
+    <!-- Profile Header Card -->
+    <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-[3rem] relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-8 relative z-10">
+            <!-- Avatar -->
+            <div class="w-32 h-32 bg-zinc-800 rounded-[2.5rem] overflow-hidden p-1 border border-zinc-700 shadow-2xl">
+                <img src="https://i.pravatar.cc/150?u=1" class="w-full h-full object-cover rounded-[2rem]">
+            </div>
+
+            <!-- Details -->
+            <div class="flex-1">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <h1 class="text-4xl font-bold tracking-tight text-white italic">Maria Santos</h1>
+                    <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 text-xs font-black uppercase rounded-full">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                        Active
+                    </span>
+                    <span class="px-4 py-1.5 bg-zinc-800 text-zinc-400 text-xs font-black uppercase rounded-full border border-zinc-700">
+                        Premium Plan
+                    </span>
+                </div>
+                <div class="mt-4 flex items-center gap-6 text-sm text-zinc-400">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-id-card text-yellow-400/60"></i>
+                        <span>ID: #GF-220194</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-yellow-400/60"></i>
+                        <span>maria.santos@email.com</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-yellow-400/60"></i>
+                        <span>Joined: Jan 20, 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex flex-col gap-2">
+                <button class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-lg shadow-yellow-400/10 active:scale-95">
+                    Check In Now
+                </button>
+                <div class="flex gap-2">
+                    <button class="flex-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-4 py-3 rounded-2xl text-xs font-bold transition-all border border-zinc-700">
+                        Edit Profile
+                    </button>
+                    <button class="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center rounded-2xl text-zinc-500 hover:text-red-400 transition-colors">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="flex items-center gap-2 p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-3xl w-fit">
+        <button 
+            @click="activeTab = 'overview'" 
+            :class="activeTab === 'overview' ? 'bg-zinc-800 text-yellow-400 border-yellow-400/20' : 'text-zinc-500 hover:text-zinc-300'"
+            class="px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest border border-transparent transition-all">
+            Overview
+        </button>
+        <button 
+            @click="activeTab = 'attendance'" 
+            :class="activeTab === 'attendance' ? 'bg-zinc-800 text-yellow-400 border-yellow-400/20' : 'text-zinc-500 hover:text-zinc-300'"
+            class="px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest border border-transparent transition-all">
+            Attendance
+        </button>
+        <button 
+            @click="activeTab = 'billing'" 
+            :class="activeTab === 'billing' ? 'bg-zinc-800 text-yellow-400 border-yellow-400/20' : 'text-zinc-500 hover:text-zinc-300'"
+            class="px-8 py-3 rounded-2xl text-xs font-bold uppercase tracking-widest border border-transparent transition-all">
+            Billing
+        </button>
+    </div>
+
+    <!-- Tab Content -->
+    <div x-show="activeTab === 'overview'" x-transition class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left: Quick Stats -->
+        <div class="lg:col-span-2 space-y-8">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
+                    <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest block mb-4 italic">Attendance Rate</span>
+                    <div class="flex items-end gap-3">
+                        <span class="text-4xl font-black text-white">94%</span>
+                        <span class="text-emerald-400 text-sm font-bold mb-1">+12%</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
+                    <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest block mb-4 italic">Avg. Workout</span>
+                    <div class="flex items-end gap-3">
+                        <span class="text-4xl font-black text-white">72m</span>
+                        <span class="text-zinc-500 text-xs mb-1">per session</span>
+                    </div>
+                </div>
+                <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
+                    <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest block mb-4 italic">Lifts Logged</span>
+                    <div class="flex items-end gap-3">
+                        <span class="text-4xl font-black text-white">2.4k</span>
+                        <span class="text-yellow-400 text-sm font-bold mb-1">PRO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Chart (Placeholder) -->
+            <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-[3rem]">
+                <h3 class="text-xl font-bold italic mb-6">Movement Density</h3>
+                <div class="h-64 flex items-center justify-center border-2 border-dashed border-zinc-800 rounded-3xl">
+                    <span class="text-zinc-600 text-xs uppercase font-black tracking-widest">Chart.js Implementation Pending</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Membership Sidebar -->
+        <div class="space-y-6">
+            <div class="bg-zinc-900/50 border border-zinc-800 p-8 rounded-[3rem]">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-6 italic">Current Plan</h3>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-yellow-400 rounded-2xl flex items-center justify-center text-zinc-950">
+                        <i class="fa-solid fa-gem text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg font-bold">Premium Annual</div>
+                        <div class="text-xs text-zinc-500">₱18,999 / year</div>
+                    </div>
+                </div>
+                
+                <div class="space-y-4 py-6 border-y border-zinc-800">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-500 italic">Effective Date</span>
+                        <span class="text-zinc-300 font-medium">Jan 20, 2024</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-500 italic">Expiry Date</span>
+                        <span class="text-zinc-300 font-medium">Jan 19, 2025</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-500 italic">Auto-renew</span>
+                        <span class="text-emerald-400 font-black uppercase text-[10px]">Enabled</span>
+                    </div>
+                </div>
+
+                <button class="w-full mt-6 bg-zinc-800 hover:bg-zinc-700 text-yellow-400 py-4 rounded-2xl text-xs font-black uppercase tracking-widest transition-all">
+                    Upgrade Plan
+                </button>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
+                <h3 class="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-4">Emergency Contact</h3>
+                <div class="font-bold text-zinc-200">Pedro Santos (Husband)</div>
+                <div class="text-xs text-zinc-500 mt-1">+63 917 123 4567</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placeholder for Other Tabs -->
+    <div x-show="activeTab === 'attendance'" class="bg-zinc-900/50 border border-zinc-800 p-20 rounded-[3rem] text-center">
+        <i class="fa-solid fa-clock-rotate-left text-4xl text-zinc-700 mb-4"></i>
+        <h3 class="text-xl font-bold italic">Attendance History</h3>
+        <p class="text-zinc-500 text-sm mt-2">Comprehensive logs will be displayed here in Phase 5.</p>
+    </div>
+
+    <div x-show="activeTab === 'billing'" class="bg-zinc-900/50 border border-zinc-800 p-20 rounded-[3rem] text-center">
+        <i class="fa-solid fa-receipt text-4xl text-zinc-700 mb-4"></i>
+        <h3 class="text-xl font-bold italic">Billing & Invoices</h3>
+        <p class="text-zinc-500 text-sm mt-2">Financial history and invoice PDF generation logic coming in Phase 7.</p>
+    </div>
+</div>
+{% endblock %}

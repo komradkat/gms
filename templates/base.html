@@ -69,7 +69,8 @@
     {% block extra_head %}{% endblock %}
 </head>
 
-<body class="tail-container bg-zinc-950 text-zinc-200 h-full overflow-hidden" x-data="{ sidebarOpen: true, addModalOpen: false }">
+<body class="bg-zinc-950 text-zinc-200 h-screen flex flex-col overflow-hidden" 
+      x-data="{ sidebarOpen: true }">
     <div class="flex flex-col h-screen overflow-hidden">
         <!-- TOP BAR -->
         {% include 'includes/topbar.html' %}

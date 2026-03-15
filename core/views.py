@@ -8,3 +8,12 @@ def login_view(request):
 
 def register_view(request):
     return render(request, 'registration/register.html')
+
+def member_list(request):
+    return render(request, 'members/list.html')
+
+def member_profile(request, member_id):
+    return render(request, 'members/profile.html')
+
+def member_create(request):
+    return render(request, 'members/create.html')
