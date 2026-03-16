@@ -6,226 +6,252 @@
 {% block content %}
 <div class="space-y-6" x-data="{ activeDay: 'Mon', activeFilter: 'All' }">
     <!-- Header Section -->
-    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-            <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Gym Timetable</div>
-            <h1 class="text-3xl font-bold tracking-tight text-white italic">Classes & Schedule</h1>
+            <div class="text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Operations Control</div>
+            <h1 class="text-3xl font-bold tracking-tight text-white">Classes & Schedule</h1>
         </div>
         <div class="flex items-center gap-3">
-            <button class="btn btn-ghost bg-zinc-900 border-zinc-800 text-zinc-400 font-bold">
-                <i class="fa-solid fa-calendar-days mr-2"></i>March 16 - 22, 2026
-            </button>
-            <button class="btn btn-warning font-black shadow-lg shadow-yellow-400/10 active:scale-95 uppercase tracking-widest">
-                <i class="fa-solid fa-plus mr-2"></i>Add Session
+            <div class="bg-zinc-900 border border-zinc-800 px-4 py-2 rounded-xl flex items-center gap-3">
+                <i class="fa-solid fa-calendar-days text-yellow-500 text-xs"></i>
+                <span class="text-[11px] font-bold text-zinc-300 uppercase tracking-tight">Mar 16 - 22, 2026</span>
+            </div>
+            <button class="btn btn-yellow-500 btn-sm text-zinc-950 font-black rounded-xl active:scale-95 px-6 uppercase text-[10px]">
+                <i class="fa-solid fa-plus mr-1"></i>Add Session
             </button>
         </div>
     </div>
 
+    <!-- Compact KPI Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <div class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-1">Active Sessions</div>
+            <div class="text-2xl font-bold text-white tracking-tight">24</div>
+            <div class="mt-2 text-[10px] text-emerald-500 font-bold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span> Live Now
+            </div>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <div class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-1">Avg. Attendance</div>
+            <div class="text-2xl font-bold text-white tracking-tight">82%</div>
+            <div class="mt-2 text-[10px] text-zinc-500 font-bold uppercase tracking-tighter">Capacity Managed</div>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <div class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-1">Instructor Load</div>
+            <div class="text-2xl font-bold text-white tracking-tight">12/12</div>
+            <div class="mt-2 text-[10px] text-emerald-500 font-bold uppercase tracking-tighter">Fully Optimized</div>
+        </div>
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-5">
+            <div class="text-zinc-500 text-[10px] font-black uppercase tracking-widest mb-1">Peak Utilization</div>
+            <div class="text-2xl font-bold text-amber-500 tracking-tight">06:30 PM</div>
+            <div class="mt-2 text-[10px] text-zinc-500 font-bold uppercase tracking-tighter">Projected Overload</div>
+        </div>
+    </div>
+
     <!-- Filters & Day Selector -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
         <!-- Day Selector -->
-        <div class="lg:col-span-3 flex items-center p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-2xl">
+        <div class="lg:col-span-3 flex items-center p-1 bg-zinc-900 border border-zinc-800 rounded-xl">
             <template x-for="day in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']">
                 <button @click="activeDay = day" 
-                        :class="activeDay === day ? 'btn btn-sm btn-ghost bg-zinc-800 text-yellow-400 shadow-xl' : 'btn btn-sm btn-ghost text-zinc-500 hover:text-zinc-300'"
-                        class="flex-1 rounded-xl text-xs font-black uppercase tracking-widest transition-all">
+                        :class="activeDay === day ? 'bg-zinc-800 text-yellow-500' : 'text-zinc-600 hover:text-zinc-400'"
+                        class="flex-1 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">
                     <span x-text="day"></span>
                 </button>
             </template>
         </div>
         
         <!-- Category Filter -->
-        <div class="flex items-center p-1.5 bg-zinc-900/50 border border-zinc-800 rounded-2xl">
-            <select x-model="activeFilter" class="select select-ghost w-full text-xs font-black uppercase tracking-widest text-zinc-400 focus:ring-0 cursor-pointer px-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-xl px-2">
+            <select x-model="activeFilter" class="select select-ghost select-sm w-full text-[10px] font-black uppercase tracking-widest text-zinc-400 focus:outline-none cursor-pointer">
                 <option value="All">All Categories</option>
                 <option value="Strength">Strength</option>
                 <option value="HIIT">HIIT & Cardio</option>
                 <option value="Yoga">Yoga & Mobility</option>
-                <option value="Boxing">Boxing & MMA</option>
             </select>
         </div>
     </div>
 
-    <!-- Schedule Table -->
-    <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-xl">
+    <!-- Schedule Container -->
+    <div class="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-xl">
         <div class="overflow-x-auto">
-            <table class="table w-full text-left">
+            <table class="table table-xs w-full">
                 <thead>
-                    <tr class="border-b border-zinc-800/100">
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Time</th>
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Class Session</th>
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Instructor</th>
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Duration</th>
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Capacity</th>
-                        <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 text-right">Actions</th>
+                    <tr class="border-b border-zinc-800 bg-zinc-950/30">
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500">Time</th>
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500">Class Session</th>
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500">Instructor</th>
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500">Duration</th>
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500">Capacity</th>
+                        <th class="px-6 py-4 text-[9px] font-black uppercase tracking-widest text-zinc-500 text-right">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-zinc-800/50">
-                    <!-- AM SESSIONS -->
-                    <tr class="bg-zinc-950/30 border-none">
-                        <td colspan="6" class="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-yellow-400/80 bg-yellow-400/5">
-                            Morning Sessions (AM)
+                    <!-- AM SEGMENT -->
+                    <tr class="bg-zinc-950/20 border-none">
+                        <td colspan="6" class="px-6 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-yellow-500/80 bg-yellow-500/5">
+                            Morning Operations (AM)
                         </td>
                     </tr>
-                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
-                        <td class="px-8 py-6">
-                            <div class="text-lg font-black text-white italic">07:00</div>
-                            <div class="text-[10px] font-bold text-zinc-600 uppercase">AM</div>
+                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="text-base font-bold text-white tracking-tighter">07:00</div>
+                            <div class="text-[9px] font-black text-zinc-600 uppercase">AM</div>
                         </td>
-                        <td class="px-8 py-6">
+                        <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.4)]"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-yellow-400 shadow-[0_0_8px_rgba(250,204,21,0.4)]"></div>
                                 <div>
-                                    <div class="text-sm font-bold text-zinc-200 group-hover:text-yellow-400 transition-colors">Power Lifting Elite</div>
-                                    <div class="text-[10px] font-black uppercase text-zinc-600 tracking-tighter">Strength • Advanced</div>
+                                    <div class="text-xs font-bold text-zinc-200 group-hover:text-yellow-400 transition-colors">Power Lifting Elite</div>
+                                    <div class="text-[9px] font-black uppercase text-zinc-600 tracking-tighter">Strength • Advanced</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-8 py-6">
-                            <div class="flex items-center gap-3">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                    <div class="w-6 h-6 rounded-lg">
                                         <img src="https://ui-avatars.com/api/?name=Marcus+Vane&background=27272a&color=a1a1aa" />
                                     </div>
                                 </div>
-                                <span class="text-xs font-bold text-zinc-400">Marcus Vane</span>
+                                <span class="text-[10px] font-bold text-zinc-400">Marcus Vane</span>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">60 MIN</td>
-                        <td class="px-8 py-6">
-                            <div class="flex flex-col gap-1 w-24">
-                                <div class="flex justify-between text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+                        <td class="px-6 py-4 text-[10px] font-black text-zinc-500 uppercase tracking-tighter">60 MIN</td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-col gap-1 w-20">
+                                <div class="flex justify-between text-[8px] font-black text-zinc-500 uppercase">
                                     <span>12/20</span>
                                     <span>60%</span>
                                 </div>
-                                <progress class="progress progress-warning w-full" value="60" max="100"></progress>
+                                <progress class="progress progress-warning h-1" value="60" max="100"></progress>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-right">
-                            <button class="btn btn-sm btn-ghost bg-zinc-800 text-zinc-400 hover:text-white text-[10px] font-black uppercase tracking-widest">Manage</button>
+                        <td class="px-6 py-4 text-right">
+                            <button class="btn btn-xs bg-zinc-800 border-zinc-700 text-zinc-400 hover:text-white rounded-lg text-[8px] font-black uppercase tracking-widest px-3">Manage</button>
                         </td>
                     </tr>
 
-                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
-                        <td class="px-8 py-6">
-                            <div class="text-lg font-black text-white italic">09:30</div>
-                            <div class="text-[10px] font-bold text-zinc-600 uppercase">AM</div>
+                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="text-base font-bold text-white tracking-tighter">09:30</div>
+                            <div class="text-[9px] font-black text-zinc-600 uppercase">AM</div>
                         </td>
-                        <td class="px-8 py-6">
+                        <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></div>
                                 <div>
-                                    <div class="text-sm font-bold text-zinc-200 group-hover:text-emerald-400 transition-colors">Inferno Cardio</div>
-                                    <div class="text-[10px] font-black uppercase text-zinc-600 tracking-tighter">HIIT • Intermediate</div>
+                                    <div class="text-xs font-bold text-zinc-200 group-hover:text-emerald-400 transition-colors">Inferno Cardio</div>
+                                    <div class="text-[9px] font-black uppercase text-zinc-600 tracking-tighter">HIIT • Intermediate</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-8 py-6">
-                            <div class="flex items-center gap-3">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                    <div class="w-6 h-6 rounded-lg">
                                         <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=27272a&color=a1a1aa" />
                                     </div>
                                 </div>
-                                <span class="text-xs font-bold text-zinc-400">Sarah Chen</span>
+                                <span class="text-[10px] font-bold text-zinc-400">Sarah Chen</span>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">45 MIN</td>
-                        <td class="px-8 py-6">
-                            <div class="flex flex-col gap-1 w-24">
-                                <div class="flex justify-between text-[10px] font-black text-red-500 uppercase tracking-widest">
-                                    <span>FULL</span>
+                        <td class="px-6 py-4 text-[10px] font-black text-zinc-500 uppercase tracking-tighter">45 MIN</td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-col gap-1 w-20">
+                                <div class="flex justify-between text-[8px] font-black text-red-500 uppercase">
+                                    <span class="font-black">FULL</span>
                                     <span>100%</span>
                                 </div>
-                                <progress class="progress progress-error w-full" value="100" max="100"></progress>
+                                <progress class="progress progress-error h-1" value="100" max="100"></progress>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-right">
-                            <button class="btn btn-sm btn-disabled bg-zinc-800/50 text-zinc-600 text-[10px] font-black uppercase tracking-widest">Waitlist</button>
+                        <td class="px-6 py-4 text-right">
+                            <button class="btn btn-xs btn-disabled bg-zinc-800/50 text-zinc-600 rounded-lg text-[8px] font-black uppercase tracking-widest px-3">Waitlist</button>
                         </td>
                     </tr>
 
-                    <!-- PM SESSIONS -->
-                    <tr class="bg-zinc-950/30 border-none">
-                        <td colspan="6" class="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-blue-400/80 bg-blue-400/5">
-                            Afternoon & Evening Sessions (PM)
+                    <!-- PM SEGMENT -->
+                    <tr class="bg-zinc-950/20 border-none">
+                        <td colspan="6" class="px-6 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-blue-400/80 bg-blue-400/5">
+                            Afternoon & Evening (PM)
                         </td>
                     </tr>
-                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
-                        <td class="px-8 py-6">
-                            <div class="text-lg font-black text-white italic">05:00</div>
-                            <div class="text-[10px] font-bold text-zinc-600 uppercase">PM</div>
+                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="text-base font-bold text-white tracking-tighter">05:00</div>
+                            <div class="text-[9px] font-black text-zinc-600 uppercase">PM</div>
                         </td>
-                        <td class="px-8 py-6">
+                        <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.4)]"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.4)]"></div>
                                 <div>
-                                    <div class="text-sm font-bold text-zinc-200 group-hover:text-blue-400 transition-colors">Zen Flow State</div>
-                                    <div class="text-[10px] font-black uppercase text-zinc-600 tracking-tighter">Yoga • All Levels</div>
+                                    <div class="text-xs font-bold text-zinc-200 group-hover:text-blue-400 transition-colors">Zen Flow State</div>
+                                    <div class="text-[9px] font-black uppercase text-zinc-600 tracking-tighter">Yoga • All Levels</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-8 py-6">
-                            <div class="flex items-center gap-3">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                    <div class="w-6 h-6 rounded-lg">
                                         <img src="https://ui-avatars.com/api/?name=David+Kim&background=27272a&color=a1a1aa" />
                                     </div>
                                 </div>
-                                <span class="text-xs font-bold text-zinc-400">David Kim</span>
+                                <span class="text-[10px] font-bold text-zinc-400">David Kim</span>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">75 MIN</td>
-                        <td class="px-8 py-6">
-                            <div class="flex flex-col gap-1 w-24">
-                                <div class="flex justify-between text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+                        <td class="px-6 py-4 text-[10px] font-black text-zinc-500 uppercase tracking-tighter">75 MIN</td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-col gap-1 w-20">
+                                <div class="flex justify-between text-[8px] font-black text-zinc-500 uppercase">
                                     <span>8/15</span>
                                     <span>53%</span>
                                 </div>
-                                <progress class="progress progress-info w-full" value="53" max="100"></progress>
+                                <progress class="progress progress-info h-1" value="53" max="100"></progress>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-right">
-                            <button class="btn btn-sm btn-ghost bg-zinc-800 text-zinc-400 hover:text-white text-[10px] font-black uppercase tracking-widest">Manage</button>
+                        <td class="px-6 py-4 text-right">
+                            <button class="btn btn-xs bg-zinc-800 border-zinc-700 text-zinc-400 hover:text-white rounded-lg text-[8px] font-black uppercase tracking-widest px-3">Manage</button>
                         </td>
                     </tr>
-                    
-                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
-                        <td class="px-8 py-6">
-                            <div class="text-lg font-black text-white italic">06:30</div>
-                            <div class="text-[10px] font-bold text-zinc-600 uppercase">PM</div>
+
+                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                        <td class="px-6 py-4">
+                            <div class="text-base font-bold text-white tracking-tighter">06:30</div>
+                            <div class="text-[9px] font-black text-zinc-600 uppercase">PM</div>
                         </td>
-                        <td class="px-8 py-6">
+                        <td class="px-6 py-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.4)]"></div>
+                                <div class="w-1.5 h-1.5 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.4)]"></div>
                                 <div>
                                     <div class="text-sm font-bold text-zinc-200 group-hover:text-red-400 transition-colors">Muay Thai Basics</div>
-                                    <div class="text-[10px] font-black uppercase text-zinc-600 tracking-tighter">Boxing • Beginners</div>
+                                    <div class="text-[9px] font-black uppercase text-zinc-600 tracking-tighter">Boxing • Beginners</div>
                                 </div>
                             </div>
                         </td>
-                        <td class="px-8 py-6">
-                            <div class="flex items-center gap-3">
+                        <td class="px-6 py-4">
+                            <div class="flex items-center gap-2">
                                 <div class="avatar">
-                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                    <div class="w-6 h-6 rounded-lg">
                                         <img src="https://ui-avatars.com/api/?name=Cody+Garrett&background=27272a&color=a1a1aa" />
                                     </div>
                                 </div>
-                                <span class="text-xs font-bold text-zinc-400">Cody Garrett</span>
+                                <span class="text-[10px] font-bold text-zinc-400">Cody Garrett</span>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-xs font-bold text-zinc-500 italic">90 MIN</td>
-                        <td class="px-8 py-6">
-                            <div class="flex flex-col gap-1 w-24">
-                                <div class="flex justify-between text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+                        <td class="px-6 py-4 text-[10px] font-black text-zinc-500 uppercase tracking-tighter">90 MIN</td>
+                        <td class="px-6 py-4">
+                            <div class="flex flex-col gap-1 w-20">
+                                <div class="flex justify-between text-[8px] font-black text-zinc-500 uppercase">
                                     <span>5/12</span>
                                     <span>42%</span>
                                 </div>
-                                <progress class="progress progress-error w-full" value="42" max="100"></progress>
+                                <progress class="progress progress-error h-1" value="42" max="100"></progress>
                             </div>
                         </td>
-                        <td class="px-8 py-6 text-right">
-                            <button class="btn btn-sm btn-ghost bg-zinc-800 text-zinc-400 hover:text-white text-[10px] font-black uppercase tracking-widest">Manage</button>
+                        <td class="px-6 py-4 text-right">
+                            <button class="btn btn-xs bg-zinc-800 border-zinc-700 text-zinc-400 hover:text-white rounded-lg text-[8px] font-black uppercase tracking-widest px-3">Manage</button>
                         </td>
                     </tr>
                 </tbody>
