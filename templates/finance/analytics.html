@@ -6,13 +6,13 @@
 {% block content %}
 <div class="space-y-8">
     <!-- Header Section -->
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
             <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Performance Data</div>
             <h1 class="text-3xl font-bold tracking-tight text-white italic">System Analytics</h1>
         </div>
         <div class="flex items-center gap-3">
-            <button class="bg-zinc-900 border border-zinc-800 text-zinc-400 px-6 py-3 rounded-2xl text-xs font-bold hover:text-white transition-all">
+            <button class="btn btn-ghost bg-zinc-900 border-zinc-800 text-zinc-400 font-bold">
                 <i class="fa-solid fa-calendar mr-2"></i>Last 30 Days
             </button>
         </div>
@@ -20,12 +20,12 @@
 
     <!-- Analytics Dashboards -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Membership Growth Chart Placeholder -->
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col h-[400px]">
+        <!-- Membership Growth Card -->
+        <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col h-[400px] shadow-xl">
             <div class="flex items-center justify-between mb-8">
                 <div>
-                    <h3 class="text-lg font-black text-white italic leading-none">Membership Growth</h3>
-                    <p class="text-[10px] font-black uppercase text-zinc-600 tracking-widest mt-1">Enrollment vs Cancellations</p>
+                    <h3 class="text-lg font-black text-white italic leading-none text-left">Membership Growth</h3>
+                    <p class="text-[10px] font-black uppercase text-zinc-600 tracking-widest mt-1 text-left">Enrollment vs Cancellations</p>
                 </div>
                 <div class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest">
                     <div class="flex items-center gap-2 text-emerald-400">
@@ -37,7 +37,6 @@
                 </div>
             </div>
             
-            <!-- Dummy Visual Graph -->
             <div class="flex-1 flex items-end gap-3 px-4">
                 <template x-for="i in 12">
                     <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end">
@@ -56,17 +55,16 @@
             </div>
         </div>
 
-        <!-- Occupancy Heatmap Placeholder -->
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col h-[400px]">
+        <!-- Occupancy Heatmap Card -->
+        <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col h-[400px] shadow-xl">
             <div class="flex items-center justify-between mb-8">
                 <div>
-                    <h3 class="text-lg font-black text-white italic leading-none">Occupancy Heatmap</h3>
-                    <p class="text-[10px] font-black uppercase text-zinc-600 tracking-widest mt-1">Peak Hours Peak Activity</p>
+                    <h3 class="text-lg font-black text-white italic leading-none text-left">Occupancy Heatmap</h3>
+                    <p class="text-[10px] font-black uppercase text-zinc-600 tracking-widest mt-1 text-left">Peak Hours Peak Activity</p>
                 </div>
-                <div class="text-[10px] font-black text-emerald-400 uppercase tracking-widest">Live: 142 Active</div>
+                <div class="badge badge-success badge-ghost font-black text-[10px] uppercase tracking-widest p-3">Live: 142 Active</div>
             </div>
             
-            <!-- Dummy Heatmap Grid -->
             <div class="flex-1 grid grid-cols-7 gap-1.5 p-2 bg-zinc-950/40 rounded-[2rem] border border-zinc-800/50 overflow-hidden">
                 <template x-for="day in 7">
                     <div class="grid grid-rows-8 gap-1.5 h-full">
@@ -89,19 +87,19 @@
         </div>
 
         <!-- Revenue Distribution Card -->
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center">
-             <div class="w-16 h-16 bg-zinc-800 rounded-3xl flex items-center justify-center text-zinc-600 mb-4">
+        <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center shadow-xl">
+             <div class="w-16 h-16 bg-zinc-900 rounded-3xl border border-zinc-800 flex items-center justify-center text-zinc-600 mb-4">
                  <i class="fa-solid fa-chart-pie text-2xl group-hover:text-yellow-400 transition-colors"></i>
              </div>
              <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400">Revenue Distribution</h3>
              <p class="text-zinc-600 text-[10px] mt-1 max-w-xs font-bold leading-relaxed">Breakdown of earnings across Annual, Quarterly, and Monthly plans. Advanced visualization loading...</p>
         </div>
 
-        <!-- Active Members Snapshot -->
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col justify-between">
+        <!-- Active Members Snapshot Card -->
+        <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[3rem] p-10 flex flex-col justify-between shadow-xl">
              <div class="space-y-1">
-                 <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400">Demographic Insights</h3>
-                 <p class="text-zinc-600 text-[10px] font-bold">Gender & Age Distribution</p>
+                 <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400 text-left">Demographic Insights</h3>
+                 <p class="text-zinc-600 text-[10px] font-bold text-left">Gender & Age Distribution</p>
              </div>
              <div class="space-y-6 pt-10">
                  <div class="space-y-2">
@@ -109,27 +107,21 @@
                          <span class="text-zinc-400">Male Members</span>
                          <span class="text-white">62%</span>
                      </div>
-                     <div class="h-2 bg-zinc-800 rounded-full overflow-hidden flex">
-                         <div class="h-full w-[62%] bg-blue-400 rounded-full"></div>
-                     </div>
+                     <progress class="progress progress-info w-full" value="62" max="100"></progress>
                  </div>
                  <div class="space-y-2">
                      <div class="flex items-center justify-between text-[10px] font-black uppercase">
                          <span class="text-zinc-400">Female Members</span>
                          <span class="text-white">38%</span>
                      </div>
-                     <div class="h-2 bg-zinc-800 rounded-full overflow-hidden flex">
-                         <div class="h-full w-[38%] bg-emerald-400 rounded-full"></div>
-                     </div>
+                     <progress class="progress progress-success w-full" value="38" max="100"></progress>
                  </div>
                  <div class="space-y-2">
                      <div class="flex items-center justify-between text-[10px] font-black uppercase">
                          <span class="text-zinc-400">Age Range (18-25)</span>
                          <span class="text-white">45%</span>
                      </div>
-                     <div class="h-2 bg-zinc-800 rounded-full overflow-hidden flex">
-                         <div class="h-full w-[45%] bg-yellow-400 rounded-full"></div>
-                     </div>
+                     <progress class="progress progress-warning w-full" value="45" max="100"></progress>
                  </div>
              </div>
         </div>

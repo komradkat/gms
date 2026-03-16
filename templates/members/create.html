@@ -8,7 +8,7 @@
     <!-- Breadcrumbs & Header -->
     <div class="flex items-center justify-between gap-4">
         <div class="flex items-center gap-4">
-            <a href="{% url 'member_list' %}" class="w-10 h-10 bg-zinc-900 border border-zinc-800 rounded-xl flex items-center justify-center text-zinc-500 hover:text-yellow-400 transition-colors">
+            <a href="{% url 'member_list' %}" class="btn btn-square btn-ghost bg-zinc-900 border-zinc-800 hover:text-yellow-400 transition-colors">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             <div>
@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="flex items-center gap-3">
-            <a href="{% url 'member_list' %}" class="px-6 py-3 text-xs font-bold text-zinc-500 hover:text-zinc-300 transition-colors uppercase tracking-widest">Discard</a>
-            <button type="submit" form="member-form" class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-xl shadow-yellow-400/10 active:scale-95 uppercase tracking-widest">
+            <a href="{% url 'member_list' %}" class="btn btn-ghost text-zinc-500 hover:text-zinc-300 uppercase tracking-widest text-xs font-bold">Discard</a>
+            <button type="submit" form="member-form" class="btn btn-warning shadow-xl shadow-yellow-400/10 active:scale-95 uppercase tracking-widest font-black">
                 Save & Register
             </button>
         </div>
@@ -29,7 +29,7 @@
         <!-- Left & Center: Multi-section Form -->
         <div class="xl:col-span-2 space-y-8">
             <!-- Section 1: Personal Profile -->
-            <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8 relative overflow-hidden">
+            <div class="card bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8 shadow-xl">
                 <div class="flex items-center gap-3 pb-6 border-b border-zinc-800 mb-6">
                     <div class="w-8 h-8 bg-yellow-400/10 rounded-lg flex items-center justify-center text-yellow-400">
                         <i class="fa-solid fa-user text-xs"></i>
@@ -38,42 +38,54 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Full Name</label>
-                        <input type="text" placeholder="e.g. Maria Clara Santos" required class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Full Name</span>
+                        </label>
+                        <input type="text" placeholder="e.g. Maria Clara Santos" required class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                     </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Email Address</label>
-                        <input type="email" placeholder="maria@example.com" required class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Email Address</span>
+                        </label>
+                        <input type="email" placeholder="maria@example.com" required class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                     </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Phone Number</label>
-                        <input type="tel" placeholder="+63 9xx xxx xxxx" required class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Phone Number</span>
+                        </label>
+                        <input type="tel" placeholder="+63 912 345 6789" required class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-1.5">
-                            <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Gender</label>
-                            <select class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all appearance-none cursor-pointer">
+                        <div class="form-control w-full">
+                            <label class="label">
+                                <span class="label-text-alt font-black uppercase text-zinc-600">Gender</span>
+                            </label>
+                            <select class="select select-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                                 <option>Select...</option>
                                 <option>Female</option>
                                 <option>Male</option>
                                 <option>Other</option>
                             </select>
                         </div>
-                        <div class="space-y-1.5">
-                            <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Date of Birth</label>
-                            <input type="date" class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                        <div class="form-control w-full">
+                            <label class="label">
+                                <span class="label-text-alt font-black uppercase text-zinc-600">Date of Birth</span>
+                            </label>
+                            <input type="date" class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                         </div>
                     </div>
                 </div>
-                <div class="mt-6 space-y-1.5">
-                    <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Complete Address</label>
-                    <textarea rows="2" placeholder="Unit/Street, Barangay, City, Province" class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all resize-none"></textarea>
+                <div class="form-control w-full mt-6">
+                    <label class="label">
+                        <span class="label-text-alt font-black uppercase text-zinc-600">Complete Address</span>
+                    </label>
+                    <textarea rows="2" placeholder="Unit/Street, Barangay, City, Province" class="textarea textarea-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200 resize-none"></textarea>
                 </div>
             </div>
 
             <!-- Section 2: Health & Fitness -->
-            <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8">
+            <div class="card bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8 shadow-xl">
                 <div class="flex items-center gap-3 pb-6 border-b border-zinc-800 mb-6">
                     <div class="w-8 h-8 bg-emerald-400/10 rounded-lg flex items-center justify-center text-emerald-400">
                         <i class="fa-solid fa-heart-pulse text-xs"></i>
@@ -82,9 +94,11 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Primary Goal</label>
-                        <select class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all appearance-none cursor-pointer">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Primary Goal</span>
+                        </label>
+                        <select class="select select-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                             <option>Weight Loss</option>
                             <option>Muscle Building</option>
                             <option>Endurance</option>
@@ -92,18 +106,24 @@
                             <option>General Health</option>
                         </select>
                     </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Weight (kg)</label>
-                        <input type="number" placeholder="0.0" class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Weight (kg)</span>
+                        </label>
+                        <input type="number" placeholder="0.0" class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                     </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Height (cm)</label>
-                        <input type="number" placeholder="0" class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Height (cm)</span>
+                        </label>
+                        <input type="number" placeholder="0" class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                     </div>
                 </div>
-                <div class="mt-6 space-y-1.5">
-                    <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Medical Conditions / Allergies</label>
-                    <input type="text" placeholder="e.g. Asthma, Hypertension (Leave blank if none)" class="w-full bg-zinc-800/80 border border-zinc-700 focus:border-yellow-400 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                <div class="form-control w-full mt-6">
+                    <label class="label">
+                        <span class="label-text-alt font-black uppercase text-zinc-600">Medical Conditions / Allergies</span>
+                    </label>
+                    <input type="text" placeholder="e.g. Asthma, Hypertension (Leave blank if none)" class="input input-bordered w-full bg-zinc-800/80 border-zinc-700 focus:border-yellow-400 text-zinc-200">
                 </div>
             </div>
         </div>
@@ -111,7 +131,7 @@
         <!-- Right Sidebar: Plan & Emergency -->
         <div class="space-y-8">
             <!-- Section 3: Membership Selection -->
-            <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8">
+            <div class="card bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8 shadow-xl">
                 <div class="flex items-center gap-3 pb-6 border-b border-zinc-800 mb-6">
                     <div class="w-8 h-8 bg-yellow-400/10 rounded-lg flex items-center justify-center text-yellow-400">
                         <i class="fa-solid fa-gem text-xs"></i>
@@ -120,50 +140,47 @@
                 </div>
 
                 <div class="space-y-3">
-                    <label class="flex items-center p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 cursor-pointer hover:border-yellow-400/50 transition-all">
-                        <input type="radio" name="plan" class="peer hidden" checked>
-                        <div class="w-5 h-5 rounded-full border-2 border-zinc-600 peer-checked:border-yellow-400 peer-checked:bg-yellow-400 flex items-center justify-center mr-4">
-                            <div class="w-2 h-2 bg-zinc-950 rounded-full"></div>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-sm font-bold text-zinc-200">Basic Monthly</div>
-                            <div class="text-[10px] text-emerald-400 font-bold">₱1,499 / mo</div>
-                        </div>
-                    </label>
+                    <div class="form-control">
+                        <label class="label cursor-pointer p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 hover:border-yellow-400/50 transition-all gap-4">
+                            <input type="radio" name="plan" class="radio radio-warning" checked>
+                            <div class="flex-1">
+                                <div class="text-sm font-bold text-zinc-200">Basic Monthly</div>
+                                <div class="text-[10px] text-emerald-400 font-bold">₱1,499 / mo</div>
+                            </div>
+                        </label>
+                    </div>
 
-                    <label class="flex items-center p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 cursor-pointer hover:border-emerald-400/50 transition-all">
-                        <input type="radio" name="plan" class="peer hidden">
-                        <div class="w-5 h-5 rounded-full border-2 border-zinc-600 peer-checked:border-emerald-400 peer-checked:bg-emerald-400 flex items-center justify-center mr-4">
-                            <div class="w-2 h-2 bg-zinc-950 rounded-full"></div>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-sm font-bold text-zinc-200">Quarterly Pro</div>
-                            <div class="text-[10px] text-emerald-400 font-bold">₱3,999 / 3 mos</div>
-                        </div>
-                    </label>
+                    <div class="form-control">
+                        <label class="label cursor-pointer p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 hover:border-emerald-400/50 transition-all gap-4">
+                            <input type="radio" name="plan" class="radio radio-success">
+                            <div class="flex-1">
+                                <div class="text-sm font-bold text-zinc-200">Quarterly Pro</div>
+                                <div class="text-[10px] text-emerald-400 font-bold">₱3,999 / 3 mos</div>
+                            </div>
+                        </label>
+                    </div>
 
-                    <label class="flex items-center p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 cursor-pointer hover:border-yellow-400 transition-all">
-                        <input type="radio" name="plan" class="peer hidden">
-                        <div class="w-5 h-5 rounded-full border-2 border-zinc-600 peer-checked:border-yellow-400 peer-checked:bg-yellow-400 flex items-center justify-center mr-4">
-                            <div class="w-2 h-2 bg-zinc-950 rounded-full"></div>
-                        </div>
-                        <div class="flex-1">
-                            <div class="text-sm font-bold text-zinc-200">Premium Annual</div>
-                            <div class="text-[10px] text-yellow-400 font-bold uppercase tracking-tighter">Best Value • ₱12,999 / yr</div>
-                        </div>
-                    </label>
+                    <div class="form-control">
+                        <label class="label cursor-pointer p-4 rounded-2xl bg-zinc-800/50 border border-zinc-700 hover:border-yellow-400 transition-all gap-4">
+                            <input type="radio" name="plan" class="radio radio-warning">
+                            <div class="flex-1">
+                                <div class="text-sm font-bold text-zinc-200">Premium Annual</div>
+                                <div class="text-[10px] text-yellow-400 font-bold uppercase tracking-tighter">Best Value • ₱12,999 / yr</div>
+                            </div>
+                        </label>
+                    </div>
                 </div>
 
-                <div class="mt-8 space-y-4">
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Start Date</label>
-                        <input type="date" class="w-full bg-zinc-800/50 border border-zinc-700 rounded-xl py-3 px-5 text-sm outline-none transition-all">
-                    </div>
+                <div class="form-control w-full mt-8">
+                    <label class="label">
+                        <span class="label-text-alt font-black uppercase text-zinc-600">Start Date</span>
+                    </label>
+                    <input type="date" class="input input-bordered w-full bg-zinc-800/50 border-zinc-700 text-zinc-200">
                 </div>
             </div>
 
             <!-- Section 4: Emergency Details -->
-            <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8">
+            <div class="card bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] p-8 shadow-xl">
                 <div class="flex items-center gap-3 pb-6 border-b border-zinc-800 mb-6">
                     <div class="w-8 h-8 bg-red-400/10 rounded-lg flex items-center justify-center text-red-400">
                         <i class="fa-solid fa-heart text-xs"></i>
@@ -172,18 +189,24 @@
                 </div>
 
                 <div class="space-y-4">
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Contact Person</label>
-                        <input type="text" placeholder="Full Name" class="w-full bg-zinc-800/50 border border-zinc-700 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text-alt font-black uppercase text-zinc-600">Contact Person</span>
+                        </label>
+                        <input type="text" placeholder="Full Name" class="input input-bordered w-full bg-zinc-800/50 border-zinc-700 text-zinc-200">
                     </div>
                     <div class="grid grid-cols-2 gap-4">
-                        <div class="space-y-1.5">
-                            <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Relation</label>
-                            <input type="text" placeholder="e.g. Spouse" class="w-full bg-zinc-800/50 border border-zinc-700 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                        <div class="form-control w-full">
+                            <label class="label">
+                                <span class="label-text-alt font-black uppercase text-zinc-600">Relation</span>
+                            </label>
+                            <input type="text" placeholder="e.g. Spouse" class="input input-bordered w-full bg-zinc-800/50 border-zinc-700 text-zinc-200">
                         </div>
-                        <div class="space-y-1.5">
-                            <label class="text-[10px] font-black uppercase text-zinc-600 ml-1">Phone</label>
-                            <input type="tel" placeholder="Phone" class="w-full bg-zinc-800/50 border border-zinc-700 rounded-xl py-3 px-5 text-sm outline-none transition-all">
+                        <div class="form-control w-full">
+                            <label class="label">
+                                <span class="label-text-alt font-black uppercase text-zinc-600">Phone</span>
+                            </label>
+                            <input type="tel" placeholder="Phone" class="input input-bordered w-full bg-zinc-800/50 border-zinc-700 text-zinc-200">
                         </div>
                     </div>
                 </div>

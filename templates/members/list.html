@@ -8,36 +8,36 @@
     <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-            <h1 class="text-3xl font-bold tracking-tight text-white italic">Member Directory</h1>
+            <h1 class="text-3xl font-bold tracking-tight text-zinc-100 italic">Member Directory</h1>
             <p class="text-zinc-500 mt-1">Manage active memberships, renewals, and registrations.</p>
         </div>
         <div class="flex items-center gap-3">
-            <button class="bg-zinc-800 hover:bg-zinc-700 text-zinc-300 px-6 py-3 rounded-2xl text-sm font-bold transition-all border border-zinc-700">
+            <button class="btn btn-ghost border-zinc-700 font-bold">
                 <i class="fa-solid fa-file-export mr-2 text-yellow-500/80"></i>Export CSV
             </button>
-            <a href="{% url 'member_create' %}" class="bg-yellow-400 hover:bg-yellow-300 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-lg shadow-yellow-400/10 active:scale-95">
+            <a href="{% url 'member_create' %}" class="btn btn-warning font-black shadow-lg shadow-yellow-400/10 active:scale-95">
                 <i class="fa-solid fa-plus mr-2"></i>Add New Member
             </a>
         </div>
     </div>
 
     <!-- Stats Summary -->
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
-            <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Total Active</span>
-            <div class="text-3xl font-black mt-2 text-zinc-100">1,284</div>
+    <div class="stats stats-vertical lg:stats-horizontal shadow-xl w-full bg-zinc-900 border border-zinc-800 rounded-[2rem]">
+        <div class="stat p-6">
+            <div class="stat-title text-zinc-500 text-xs font-bold uppercase tracking-widest">Total Active</div>
+            <div class="stat-value text-3xl font-black mt-2 text-zinc-100">1,284</div>
         </div>
-        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
-            <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Expiring Soon</span>
-            <div class="text-3xl font-black mt-2 text-amber-400">42</div>
+        <div class="stat p-6">
+            <div class="stat-title text-zinc-500 text-xs font-bold uppercase tracking-widest">Expiring Soon</div>
+            <div class="stat-value text-3xl font-black mt-2 text-amber-400">42</div>
         </div>
-        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
-            <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Inactive</span>
-            <div class="text-3xl font-black mt-2 text-red-400">12</div>
+        <div class="stat p-6">
+            <div class="stat-title text-zinc-500 text-xs font-bold uppercase tracking-widest">Inactive</div>
+            <div class="stat-value text-3xl font-black mt-2 text-red-400">12</div>
         </div>
-        <div class="bg-zinc-900/50 border border-zinc-800 p-6 rounded-[2rem]">
-            <span class="text-zinc-500 text-xs font-bold uppercase tracking-widest">New Today</span>
-            <div class="text-3xl font-black mt-2 text-emerald-400">+5</div>
+        <div class="stat p-6">
+            <div class="stat-title text-zinc-500 text-xs font-bold uppercase tracking-widest">New Today</div>
+            <div class="stat-value text-3xl font-black mt-2 text-emerald-400">+5</div>
         </div>
     </div>
 
@@ -45,20 +45,20 @@
     <div class="bg-zinc-900/50 border border-zinc-800 p-4 rounded-[2rem] flex flex-wrap items-center gap-4">
         <div class="relative flex-1 min-w-[300px]">
             <input type="text" placeholder="Search by name, email, or member ID..." 
-                class="w-full bg-zinc-800 border-none rounded-2xl py-3 px-12 text-sm outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all">
+                class="input input-bordered w-full bg-zinc-800 border-none rounded-2xl py-3 px-12 text-sm outline-none focus:ring-2 focus:ring-yellow-400/50 transition-all text-zinc-200">
             <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-zinc-500"></i>
         </div>
         
-        <div class="flex items-center gap-2">
-            <button class="bg-zinc-800 text-zinc-300 px-5 py-3 rounded-2xl text-xs font-bold border border-yellow-400/20 text-yellow-400 uppercase tracking-widest">All Members</button>
-            <button class="bg-zinc-900 text-zinc-500 px-5 py-3 rounded-2xl text-xs font-bold hover:text-zinc-300 transition-all uppercase tracking-widest">Active Only</button>
-            <button class="bg-zinc-900 text-zinc-500 px-5 py-3 rounded-2xl text-xs font-bold hover:text-zinc-300 transition-all uppercase tracking-widest">Expiring</button>
-            <button class="bg-zinc-900 text-zinc-500 px-5 py-3 rounded-2xl text-xs font-bold hover:text-zinc-300 transition-all uppercase tracking-widest">Inactive</button>
+        <div class="join">
+            <button class="join-item btn btn-sm bg-zinc-800 text-yellow-400 border-yellow-400/20 uppercase tracking-widest">All Members</button>
+            <button class="join-item btn btn-sm bg-zinc-900 text-zinc-500 hover:text-zinc-300 uppercase tracking-widest border-zinc-800">Active Only</button>
+            <button class="join-item btn btn-sm bg-zinc-900 text-zinc-500 hover:text-zinc-300 uppercase tracking-widest border-zinc-800">Expiring</button>
+            <button class="join-item btn btn-sm bg-zinc-900 text-zinc-500 hover:text-zinc-300 uppercase tracking-widest border-zinc-800">Inactive</button>
         </div>
 
         <div class="ml-auto flex items-center gap-2">
             <span class="text-zinc-500 text-xs font-bold uppercase mr-2 tracking-tighter">Sort by:</span>
-            <select class="bg-zinc-800 border-none rounded-2xl py-3 px-6 text-xs font-bold outline-none cursor-pointer">
+            <select class="select select-bordered select-sm bg-zinc-800 border-none rounded-2xl text-xs font-bold text-zinc-200">
                 <option>Recently Joined</option>
                 <option>Name (A-Z)</option>
                 <option>Expiry Date</option>
@@ -67,149 +67,157 @@
     </div>
 
     <!-- Members Table -->
-    <div class="bg-zinc-900/50 border border-zinc-800 rounded-[2.5rem] overflow-hidden">
-        <table class="w-full text-left border-collapse">
-            <thead>
-                <tr class="bg-zinc-900/80 border-b border-zinc-800">
-                    <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Member</th>
-                    <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Membership</th>
-                    <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Status</th>
-                    <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Check-in History</th>
-                    <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500 text-right">Action</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-zinc-800/50">
-                <!-- Member Row 1 -->
-                <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer" onclick="window.location.href='#'">
-                    <td class="px-8 py-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-2xl overflow-hidden p-0.5 border border-zinc-700">
-                                <img src="https://i.pravatar.cc/150?u=1" class="w-full h-full object-cover rounded-[14px]">
+    <div class="card bg-zinc-900 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+            <table class="table w-full text-left">
+                <thead>
+                    <tr class="bg-zinc-900/80 border-b border-zinc-800">
+                        <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Member</th>
+                        <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Membership</th>
+                        <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Status</th>
+                        <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500">Check-in History</th>
+                        <th class="px-8 py-6 text-xs font-bold uppercase tracking-widest text-zinc-500 text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-zinc-800/50">
+                    <!-- Member Row 1 -->
+                    <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer border-zinc-800" onclick="window.location.href='#'">
+                        <td class="px-8 py-6">
+                            <div class="flex items-center gap-4">
+                                <div class="avatar">
+                                    <div class="w-12 rounded-2xl border border-zinc-700 p-0.5">
+                                        <img src="https://i.pravatar.cc/150?u=1" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Maria Santos</div>
+                                    <div class="text-xs text-zinc-500">maria.santos@email.com</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Maria Santos</div>
-                                <div class="text-xs text-zinc-500">maria.santos@email.com</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="text-sm font-medium text-zinc-300">Premium Plan</div>
+                            <div class="text-xs text-zinc-500 mt-0.5">Expires: Oct 12, 2026</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <span class="badge badge-success badge-outline badge-sm gap-1.5 uppercase font-black py-3">
+                                <span class="w-1.5 h-1.5 bg-success rounded-full"></span>
+                                Active
+                            </span>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="flex gap-1">
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-100"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-80"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-40"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full opacity-100"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-90"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-60"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-100"></div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="text-sm font-medium text-zinc-300">Premium Plan</div>
-                        <div class="text-xs text-zinc-500 mt-0.5">Expires: Oct 12, 2026</div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase rounded-full">
-                            <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-                            Active
-                        </span>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="flex gap-1">
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-100"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-80"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-40"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full opacity-100"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-90"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-60"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-100"></div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6 text-right">
-                        <button class="w-10 h-10 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-100 rounded-2xl transition-all border border-zinc-700">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                    </td>
-                </tr>
+                        </td>
+                        <td class="px-8 py-6 text-right">
+                            <button class="btn btn-square btn-ghost btn-sm bg-zinc-800 text-zinc-400 border-zinc-700">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </td>
+                    </tr>
 
-                <!-- Member Row 2 -->
-                <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer">
-                    <td class="px-8 py-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-2xl overflow-hidden p-0.5 border border-zinc-700">
-                                <img src="https://i.pravatar.cc/150?u=2" class="w-full h-full object-cover rounded-[14px]">
+                    <!-- Member Row 2 -->
+                    <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer border-zinc-800">
+                        <td class="px-8 py-6">
+                            <div class="flex items-center gap-4">
+                                <div class="avatar">
+                                    <div class="w-12 rounded-2xl border border-zinc-700 p-0.5">
+                                        <img src="https://i.pravatar.cc/150?u=2" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Juan Dela Cruz</div>
+                                    <div class="text-xs text-zinc-500">juan.delacruz@email.com</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Juan Dela Cruz</div>
-                                <div class="text-xs text-zinc-500">juan.delacruz@email.com</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="text-sm font-medium text-zinc-300">Basic Monthly</div>
+                            <div class="text-xs text-amber-500 mt-0.5 font-bold italic">Expiring in 3 days</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <span class="badge badge-warning badge-outline badge-sm gap-1.5 uppercase font-black py-3">
+                                <span class="w-1.5 h-1.5 bg-warning rounded-full"></span>
+                                Expiring
+                            </span>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="flex gap-1">
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-60"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-80"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="text-sm font-medium text-zinc-300">Basic Monthly</div>
-                        <div class="text-xs text-amber-500 mt-0.5 font-bold italic">Expiring in 3 days</div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 text-amber-500 text-[10px] font-black uppercase rounded-full">
-                            <span class="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                            Expiring
-                        </span>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="flex gap-1">
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-60"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-emerald-500 rounded-full opacity-80"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6 text-right">
-                        <button class="w-10 h-10 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-100 rounded-2xl transition-all border border-zinc-700">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                    </td>
-                </tr>
+                        </td>
+                        <td class="px-8 py-6 text-right">
+                            <button class="btn btn-square btn-ghost btn-sm bg-zinc-800 text-zinc-400 border-zinc-700">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </td>
+                    </tr>
 
-                <!-- Member Row 3 -->
-                <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer">
-                    <td class="px-8 py-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-zinc-800 rounded-2xl overflow-hidden p-0.5 border border-zinc-700">
-                                <img src="https://i.pravatar.cc/150?u=3" class="w-full h-full object-cover rounded-[14px]">
+                    <!-- Member Row 3 -->
+                    <tr class="group hover:bg-zinc-800/20 transition-all cursor-pointer border-zinc-800">
+                        <td class="px-8 py-6">
+                            <div class="flex items-center gap-4">
+                                <div class="avatar">
+                                    <div class="w-12 rounded-2xl border border-zinc-700 p-0.5">
+                                        <img src="https://i.pravatar.cc/150?u=3" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Elena Gilbert</div>
+                                    <div class="text-xs text-zinc-500">elena.g@email.com</div>
+                                </div>
                             </div>
-                            <div>
-                                <div class="font-bold text-zinc-100 group-hover:text-yellow-400 transition-colors">Elena Gilbert</div>
-                                <div class="text-xs text-zinc-500">elena.g@email.com</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="text-sm font-medium text-zinc-300">Annual Membership</div>
+                            <div class="text-xs text-zinc-500 mt-0.5">Expired: Mar 01, 2026</div>
+                        </td>
+                        <td class="px-8 py-6">
+                            <span class="badge badge-error badge-outline badge-sm gap-1.5 uppercase font-black py-3">
+                                <span class="w-1.5 h-1.5 bg-error rounded-full"></span>
+                                Inactive
+                            </span>
+                        </td>
+                        <td class="px-8 py-6">
+                            <div class="flex gap-1 select-none grayscale opacity-30">
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
+                                <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="text-sm font-medium text-zinc-300">Annual Membership</div>
-                        <div class="text-xs text-zinc-500 mt-0.5">Expired: Mar 01, 2026</div>
-                    </td>
-                    <td class="px-8 py-6">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-red-500/10 text-red-500 text-[10px] font-black uppercase rounded-full">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-                            Inactive
-                        </span>
-                    </td>
-                    <td class="px-8 py-6">
-                        <div class="flex gap-1 select-none grayscale opacity-30">
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                            <div class="w-2 h-6 bg-zinc-700 rounded-full"></div>
-                        </div>
-                    </td>
-                    <td class="px-8 py-6 text-right">
-                        <button class="w-10 h-10 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-100 rounded-2xl transition-all border border-zinc-700">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                        </td>
+                        <td class="px-8 py-6 text-right">
+                            <button class="btn btn-square btn-ghost btn-sm bg-zinc-800 text-zinc-400 border-zinc-700">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <!-- Pagination -->
-        <div class="bg-zinc-900 px-8 py-6 flex items-center justify-between border-t border-zinc-800">
+        <div class="card-actions bg-zinc-900 px-8 py-6 flex items-center justify-between border-t border-zinc-800">
             <span class="text-xs text-zinc-500 font-bold uppercase tracking-widest">Showing 1 to 10 of 1,284 members</span>
-            <div class="flex items-center gap-2">
-                <button class="bg-zinc-800 text-zinc-500 px-4 py-2 rounded-xl text-xs font-bold border border-zinc-700 cursor-not-allowed">Previous</button>
-                <button class="bg-zinc-800 text-yellow-400 px-4 py-2 rounded-xl text-xs font-bold border border-yellow-400/20 active:scale-95">Next</button>
+            <div class="join">
+                <button class="join-item btn btn-sm bg-zinc-800 text-zinc-500 border-zinc-700 cursor-not-allowed">Previous</button>
+                <button class="join-item btn btn-sm bg-zinc-800 text-yellow-400 border-yellow-400/20 active:scale-95">Next</button>
             </div>
         </div>
     </div>

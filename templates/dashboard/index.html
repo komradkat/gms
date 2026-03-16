@@ -5,73 +5,64 @@
 <!-- Greeting -->
 <div class="flex justify-between items-end mb-10">
     <div>
-        <h1 class="text-5xl font-semibold tracking-tighter logo-font">Good morning, Sean 👋</h1>
+        <h1 class="text-5xl font-semibold tracking-tighter logo-font text-zinc-100">Good morning, Sean 👋</h1>
         <p class="text-zinc-400 mt-2 text-lg">Here's what's happening at GymForge today • March 16, 2026</p>
     </div>
     <div class="flex gap-3">
-        <button class="flex items-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 rounded-3xl text-sm font-medium">
+        <button class="btn btn-ghost btn-circle">
             <i class="fa-solid fa-rotate"></i>
-            <span>Refresh</span>
         </button>
     </div>
 </div>
 
 <!-- KPI CARDS -->
-<div class="grid grid-cols-4 gap-6 mb-10">
+<div class="stats stats-vertical lg:stats-horizontal shadow-xl w-full bg-zinc-900 border border-zinc-800 rounded-3xl mb-10">
     <!-- Card 1 -->
-    <div class="stat-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <div class="flex justify-between">
-            <div>
-                <div class="text-sm text-zinc-400">Total Members</div>
-                <div id="totalMembers" class="text-6xl font-semibold mt-3 tracking-tighter">1,284</div>
-            </div>
+    <div class="stat p-8">
+        <div class="stat-figure text-emerald-400">
             <div class="w-12 h-12 bg-emerald-400/10 rounded-2xl flex items-center justify-center text-3xl">👥</div>
         </div>
-        <div class="mt-8 flex items-center gap-2 text-emerald-400 text-sm">
+        <div class="stat-title text-zinc-400 text-sm">Total Members</div>
+        <div id="totalMembers" class="stat-value text-6xl font-semibold mt-3 tracking-tighter text-zinc-100">1,284</div>
+        <div class="stat-desc mt-8 flex items-center gap-2 text-emerald-400 text-sm italic">
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span>+38 this month</span>
         </div>
     </div>
 
     <!-- Card 2 -->
-    <div class="stat-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <div class="flex justify-between">
-            <div>
-                <div class="text-sm text-zinc-400">Checked In Today</div>
-                <div id="checkedIn" class="text-6xl font-semibold mt-3 tracking-tighter">237</div>
-            </div>
+    <div class="stat p-8">
+        <div class="stat-figure text-blue-400">
             <div class="w-12 h-12 bg-blue-400/10 rounded-2xl flex items-center justify-center text-3xl">🏋️</div>
         </div>
-        <div class="mt-8 flex items-center gap-2 text-blue-400 text-sm">
+        <div class="stat-title text-zinc-400 text-sm">Checked In Today</div>
+        <div id="checkedIn" class="stat-value text-6xl font-semibold mt-3 tracking-tighter text-zinc-100">237</div>
+        <div class="stat-desc mt-8 flex items-center gap-2 text-blue-400 text-sm italic">
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span>Peak at 7:42 AM</span>
         </div>
     </div>
 
     <!-- Card 3 -->
-    <div class="stat-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <div class="flex justify-between">
-            <div>
-                <div class="text-sm text-zinc-400">Monthly Revenue</div>
-                <div id="revenue" class="text-6xl font-semibold mt-3 tracking-tighter">₱487k</div>
-            </div>
+    <div class="stat p-8">
+        <div class="stat-figure text-yellow-400">
             <div class="w-12 h-12 bg-yellow-400/10 rounded-2xl flex items-center justify-center text-3xl">💰</div>
         </div>
-        <div class="mt-8 flex items-center gap-2 text-yellow-400 text-sm">
+        <div class="stat-title text-zinc-400 text-sm">Monthly Revenue</div>
+        <div id="revenue" class="stat-value text-6xl font-semibold mt-3 tracking-tighter text-zinc-100">₱487k</div>
+        <div class="stat-desc mt-8 flex items-center gap-2 text-yellow-400 text-sm italic">
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span>+14% from last month</span>
         </div>
     </div>
 
     <!-- Card 4 -->
-    <div class="stat-card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 relative overflow-hidden">
-        <div class="flex justify-between">
-            <div>
-                <div class="text-sm text-zinc-400">Active Classes</div>
-                <div class="text-6xl font-semibold mt-3 tracking-tighter">14</div>
-            </div>
+    <div class="stat p-8 overflow-hidden relative">
+        <div class="stat-figure text-purple-400">
             <div class="w-12 h-12 bg-purple-400/10 rounded-2xl flex items-center justify-center text-3xl">📅</div>
         </div>
+        <div class="stat-title text-zinc-400 text-sm">Active Classes</div>
+        <div class="stat-value text-6xl font-semibold mt-3 tracking-tighter text-zinc-100">14</div>
         <div class="absolute bottom-8 right-8 text-[120px] font-black text-purple-500/10">14</div>
     </div>
 </div>
@@ -79,10 +70,10 @@
 <!-- CHARTS ROW -->
 <div class="grid grid-cols-7 gap-6">
     <!-- Membership Growth -->
-    <div class="col-span-4 bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+    <div class="col-span-4 card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-xl">
         <div class="flex items-center justify-between mb-6">
-            <div class="font-semibold text-lg">Membership Growth • 2026</div>
-            <select id="growthPeriod" class="bg-zinc-800 border border-zinc-700 rounded-2xl px-4 py-2 text-sm">
+            <div class="font-semibold text-lg text-zinc-100">Membership Growth • 2026</div>
+            <select id="growthPeriod" class="select select-bordered select-sm bg-zinc-800 border-zinc-700 rounded-2xl px-4 py-2 text-sm">
                 <option value="6">Last 6 Months</option>
                 <option value="12" selected>Last 12 Months</option>
             </select>
@@ -91,8 +82,8 @@
     </div>
 
     <!-- Attendance Heatmap / Bar -->
-    <div class="col-span-3 bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
-        <div class="font-semibold text-lg mb-6">Daily Attendance This Week</div>
+    <div class="col-span-3 card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-xl">
+        <div class="font-semibold text-lg mb-6 text-zinc-100">Daily Attendance This Week</div>
         <canvas id="attendanceChart"></canvas>
     </div>
 </div>
@@ -100,51 +91,53 @@
 <!-- BOTTOM SECTION: Tables -->
 <div class="grid grid-cols-2 gap-6 mt-6">
     <!-- Recent Members -->
-    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+    <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-xl">
         <div class="flex justify-between items-center mb-6">
-            <div class="font-semibold">Recent Sign-ups</div>
-            <a href="#" class="text-yellow-400 text-sm hover:underline">View all →</a>
+            <div class="font-semibold text-zinc-100">Recent Sign-ups</div>
+            <a href="#" class="link link-warning text-sm hover:underline">View all →</a>
         </div>
-        <table id="recentTable" class="w-full">
-            <thead>
-                <tr class="text-xs text-zinc-400 border-b border-zinc-800">
-                    <th class="text-left pb-4 font-normal">Member</th>
-                    <th class="text-left pb-4 font-normal">Plan</th>
-                    <th class="text-right pb-4 font-normal">Joined</th>
-                </tr>
-            </thead>
-            <tbody class="text-sm divide-y divide-zinc-800">
-                <tr class="hover:bg-zinc-800 transition-colors">
-                    <td class="py-5">Maria Santos</td>
-                    <td class="py-5"><span class="px-3 py-1 text-xs rounded-2xl bg-emerald-400/10 text-emerald-400">Premium</span></td>
-                    <td class="py-5 text-right text-zinc-400">Today</td>
-                </tr>
-                <tr class="hover:bg-zinc-800 transition-colors">
-                    <td class="py-5">Juan Dela Cruz</td>
-                    <td class="py-5"><span class="px-3 py-1 text-xs rounded-2xl bg-emerald-400/10 text-emerald-400">Yearly</span></td>
-                    <td class="py-5 text-right text-zinc-400">Yesterday</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="overflow-x-auto">
+            <table id="recentTable" class="table w-full">
+                <thead>
+                    <tr class="text-xs text-zinc-400 border-b border-zinc-800">
+                        <th class="font-normal">Member</th>
+                        <th class="font-normal">Plan</th>
+                        <th class="text-right font-normal">Joined</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="hover:bg-zinc-800/50 transition-colors border-zinc-800">
+                        <td class="py-5 font-medium">Maria Santos</td>
+                        <td class="py-5"><span class="badge badge-success badge-outline badge-sm">Premium</span></td>
+                        <td class="py-5 text-right text-zinc-400">Today</td>
+                    </tr>
+                    <tr class="hover:bg-zinc-800/50 transition-colors border-zinc-800">
+                        <td class="py-5 font-medium">Juan Dela Cruz</td>
+                        <td class="py-5"><span class="badge badge-success badge-outline badge-sm">Yearly</span></td>
+                        <td class="py-5 text-right text-zinc-400">Yesterday</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Today's Classes -->
-    <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-8">
+    <div class="card bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-xl">
         <div class="flex justify-between items-center mb-6">
-            <div class="font-semibold">Today's Schedule</div>
-            <span class="text-xs bg-yellow-400/10 text-yellow-400 px-3 py-1 rounded-2xl">14 classes</span>
+            <div class="font-semibold text-zinc-100">Today's Schedule</div>
+            <span class="badge badge-warning badge-sm px-3 py-1">14 classes</span>
         </div>
         <div id="classesList" class="space-y-4">
-            <div class="flex items-center justify-between bg-zinc-800 rounded-2xl px-6 py-5">
+            <div class="flex items-center justify-between bg-zinc-800/50 rounded-2xl px-6 py-5 border border-zinc-800">
                 <div class="flex items-center gap-6">
                     <div class="w-14 h-14 bg-zinc-700 rounded-2xl flex items-center justify-center text-2xl">⏰</div>
                     <div>
-                        <div class="font-semibold">HIIT Burn</div>
+                        <div class="font-semibold text-zinc-100">HIIT Burn</div>
                         <div class="text-xs text-zinc-400">Coach Rico</div>
                     </div>
                 </div>
                 <div class="text-right">
-                    <div class="font-mono text-lg">07:00</div>
+                    <div class="font-mono text-lg text-zinc-100">07:00</div>
                     <div class="text-xs text-emerald-400">12/20</div>
                 </div>
             </div>
@@ -155,24 +148,30 @@
 
 {% block modals %}
 <!-- ADD MEMBER MODAL -->
-<div id="addModal" x-show="addModalOpen" class="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-    <div class="glass w-full max-w-lg rounded-3xl p-8" @click.away="addModalOpen = false">
-        <h2 class="text-2xl font-semibold mb-6 text-zinc-900">Add New Member</h2>
+<dialog id="addModal" class="modal" :class="{ 'modal-open': addModalOpen }">
+    <div class="modal-box bg-zinc-900 border border-zinc-800 shadow-2xl max-w-lg p-8">
+        <h2 class="text-2xl font-semibold mb-6 text-zinc-100">Add New Member</h2>
         <div class="space-y-6">
-            <div>
-                <label class="block text-sm mb-2 text-zinc-700">Full Name</label>
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text text-zinc-400">Full Name</span>
+                </label>
                 <input type="text" id="modalName" value="John Doe"
-                    class="w-full bg-zinc-100 border border-zinc-300 rounded-2xl px-6 py-4 text-zinc-900">
+                    class="input input-bordered w-full bg-zinc-800 border-zinc-700 text-zinc-100">
             </div>
             <div class="grid grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm mb-2 text-zinc-700">Phone</label>
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text text-zinc-400">Phone</span>
+                    </label>
                     <input type="text" value="+63 912 345 6789"
-                        class="w-full bg-zinc-100 border border-zinc-300 rounded-2xl px-6 py-4 text-zinc-900">
+                        class="input input-bordered w-full bg-zinc-800 border-zinc-700 text-zinc-100">
                 </div>
-                <div>
-                    <label class="block text-sm mb-2 text-zinc-700">Plan</label>
-                    <select class="w-full bg-zinc-100 border border-zinc-300 rounded-2xl px-6 py-4 text-zinc-900">
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text text-zinc-400">Plan</span>
+                    </label>
+                    <select class="select select-bordered w-full bg-zinc-800 border-zinc-700 text-zinc-100">
                         <option>Premium Monthly</option>
                         <option>Standard Yearly</option>
                     </select>
@@ -180,13 +179,13 @@
             </div>
         </div>
 
-        <div class="flex gap-4 mt-10">
+        <div class="modal-action gap-4 mt-10">
             <button @click="addModalOpen = false"
-                class="flex-1 py-4 rounded-3xl border border-zinc-300 font-medium text-zinc-700">Cancel</button>
-            <button class="flex-1 py-4 rounded-3xl bg-yellow-400 text-zinc-950 font-semibold">Add Member</button>
+                class="btn btn-outline btn-ghost flex-1 border-zinc-700 text-zinc-400">Cancel</button>
+            <button class="btn btn-warning flex-1 font-semibold">Add Member</button>
         </div>
     </div>
-</div>
+</dialog>
 {% endblock %}
 
 {% block extra_js %}

@@ -6,75 +6,62 @@
 {% block content %}
 <div class="space-y-6">
     <!-- Header Section -->
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
             <div class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600 mb-1">Financial Overview</div>
             <h1 class="text-3xl font-bold tracking-tight text-white italic">Payments & Revenue</h1>
         </div>
         <div class="flex items-center gap-3">
-            <button class="bg-zinc-900 border border-zinc-800 text-zinc-400 px-6 py-3 rounded-2xl text-xs font-bold hover:text-white transition-all">
+            <button class="btn btn-ghost border-zinc-800 text-zinc-400 font-bold">
                 <i class="fa-solid fa-download mr-2"></i>Export Report
             </button>
-            <button class="bg-emerald-500 hover:bg-emerald-400 text-zinc-950 px-8 py-3 rounded-2xl text-sm font-black transition-all shadow-lg shadow-emerald-500/10 active:scale-95 uppercase tracking-widest">
+            <button class="btn btn-success text-zinc-950 font-black shadow-lg shadow-emerald-500/10 active:scale-95 uppercase tracking-widest">
                 <i class="fa-solid fa-receipt mr-2"></i>New Invoice
             </button>
         </div>
     </div>
 
     <!-- Stats Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-6 group hover:border-emerald-400/30 transition-all">
-            <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">Monthly Revenue</div>
-            <div class="flex items-end justify-between">
-                <div class="text-3xl font-black text-white italic">$42,850</div>
-                <div class="text-emerald-400 text-[10px] font-black uppercase mb-1">+12.5%</div>
-            </div>
-            <div class="mt-4 h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-                <div class="h-full w-[75%] bg-emerald-400"></div>
-            </div>
+    <div class="stats stats-vertical lg:stats-horizontal shadow-xl w-full bg-zinc-900 border border-zinc-800 rounded-[2rem]">
+        <div class="stat p-6 group hover:bg-zinc-800/20 transition-all">
+            <div class="stat-title text-[10px] font-black uppercase tracking-widest text-zinc-600">Monthly Revenue</div>
+            <div class="stat-value text-3xl font-black text-white italic mt-2">$42,850</div>
+            <div class="stat-desc text-emerald-400 font-black mt-1">+12.5% vs last month</div>
+            <progress class="progress progress-success w-full mt-4" value="75" max="100"></progress>
         </div>
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-6 group hover:border-yellow-400/30 transition-all">
-            <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">Pending Dues</div>
-            <div class="flex items-end justify-between">
-                <div class="text-3xl font-black text-white italic">$3,210</div>
-                <div class="text-yellow-400 text-[10px] font-black uppercase mb-1">8 Members</div>
-            </div>
-            <div class="mt-4 h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-                <div class="h-full w-[20%] bg-yellow-400"></div>
-            </div>
+        
+        <div class="stat p-6 group hover:bg-zinc-800/20 transition-all">
+            <div class="stat-title text-[10px] font-black uppercase tracking-widest text-zinc-600">Pending Dues</div>
+            <div class="stat-value text-3xl font-black text-white italic mt-2">$3,210</div>
+            <div class="stat-desc text-yellow-400 font-black mt-1">8 Members outstanding</div>
+            <progress class="progress progress-warning w-full mt-4" value="20" max="100"></progress>
         </div>
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-6 group hover:border-blue-400/30 transition-all">
-            <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">Churn Recovery</div>
-            <div class="flex items-end justify-between">
-                <div class="text-3xl font-black text-white italic">84%</div>
-                <div class="text-blue-400 text-[10px] font-black uppercase mb-1">Retention</div>
-            </div>
-            <div class="mt-4 h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-                <div class="h-full w-[84%] bg-blue-400"></div>
-            </div>
+
+        <div class="stat p-6 group hover:bg-zinc-800/20 transition-all">
+            <div class="stat-title text-[10px] font-black uppercase tracking-widest text-zinc-600">Churn Recovery</div>
+            <div class="stat-value text-3xl font-black text-white italic mt-2">84%</div>
+            <div class="stat-desc text-blue-400 font-black mt-1">Retention target reached</div>
+            <progress class="progress progress-info w-full mt-4" value="84" max="100"></progress>
         </div>
-        <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2rem] p-6 group hover:border-red-400/30 transition-all">
-            <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-2">Overdue Payments</div>
-            <div class="flex items-end justify-between">
-                <div class="text-3xl font-black text-white italic">$1,450</div>
-                <div class="text-red-400 text-[10px] font-black uppercase mb-1">Critical</div>
-            </div>
-            <div class="mt-4 h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
-                <div class="h-full w-[10%] bg-red-400"></div>
-            </div>
+
+        <div class="stat p-6 group hover:bg-zinc-800/20 transition-all">
+            <div class="stat-title text-[10px] font-black uppercase tracking-widest text-zinc-600">Overdue</div>
+            <div class="stat-value text-3xl font-black text-white italic mt-2">$1,450</div>
+            <div class="stat-desc text-red-400 font-black mt-1">Critical action required</div>
+            <progress class="progress progress-error w-full mt-4" value="10" max="100"></progress>
         </div>
     </div>
 
     <!-- Transaction Table -->
-    <div class="bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] overflow-hidden">
-        <div class="px-8 py-6 border-b border-zinc-800/50 flex items-center justify-between bg-zinc-950/20">
+    <div class="card bg-zinc-900/40 border border-zinc-800 rounded-[2.5rem] overflow-hidden shadow-xl">
+        <div class="px-8 py-6 border-b border-zinc-800/50 flex flex-col md:flex-row md:items-center justify-between bg-zinc-950/20 gap-4">
             <h3 class="text-sm font-black uppercase tracking-widest text-zinc-400 italic">Recent Transactions</h3>
-            <div class="flex items-center gap-4">
+            <div class="flex flex-wrap items-center gap-4">
                 <div class="relative">
+                    <input type="text" placeholder="Search Transactions..." class="input input-sm input-bordered bg-zinc-900 border-zinc-800 text-white text-[10px] font-bold pl-10 pr-4 rounded-xl w-64 placeholder:text-zinc-700">
                     <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-zinc-600 text-[10px]"></i>
-                    <input type="text" placeholder="Search Transactions..." class="bg-zinc-900 border-zinc-800 text-white text-[10px] font-bold py-2 pl-10 pr-4 rounded-xl focus:ring-yellow-400 focus:border-yellow-400 w-64 placeholder:text-zinc-700">
                 </div>
-                <select class="bg-zinc-900 border-zinc-800 text-zinc-500 text-[10px] font-black uppercase tracking-widest py-2 px-4 rounded-xl focus:ring-0 cursor-pointer">
+                <select class="select select-sm select-bordered bg-zinc-900 border-zinc-800 text-zinc-500 text-[10px] font-black uppercase tracking-widest rounded-xl">
                     <option>Weekly</option>
                     <option>Monthly</option>
                     <option>Yearly</option>
@@ -82,7 +69,7 @@
             </div>
         </div>
         <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
+            <table class="table w-full text-left">
                 <thead>
                     <tr class="border-b border-zinc-800/100 bg-zinc-950/10">
                         <th class="px-8 py-6 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-600">Reference ID</th>
@@ -94,13 +81,17 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-zinc-800/50">
-                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
                         <td class="px-8 py-6">
                             <span class="text-xs font-bold text-zinc-500 group-hover:text-zinc-400 transition-colors">#GF-2026-0394</span>
                         </td>
                         <td class="px-8 py-6">
                             <div class="flex items-center gap-3">
-                                <img src="https://ui-avatars.com/api/?name=James+Wilson&background=27272a&color=a1a1aa" class="w-8 h-8 rounded-lg border border-zinc-800" alt="Avatar">
+                                <div class="avatar">
+                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                        <img src="https://ui-avatars.com/api/?name=James+Wilson&background=27272a&color=a1a1aa" />
+                                    </div>
+                                </div>
                                 <span class="text-xs font-bold text-zinc-300">James Wilson</span>
                             </div>
                         </td>
@@ -109,19 +100,23 @@
                             <span class="text-sm font-black text-white italic font-mono">$150.00</span>
                         </td>
                         <td class="px-8 py-6">
-                            <span class="px-2.5 py-1 bg-emerald-400/10 text-emerald-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-emerald-400/20">SUCCESSFUL</span>
+                            <span class="badge badge-success badge-outline badge-sm font-black tracking-widest uppercase py-3">SUCCESSFUL</span>
                         </td>
                         <td class="px-8 py-6 text-right">
-                            <button class="text-zinc-600 hover:text-emerald-400 transition-colors"><i class="fa-solid fa-file-pdf text-lg"></i></button>
+                            <button class="btn btn-ghost btn-circle btn-sm text-zinc-600 hover:text-emerald-400"><i class="fa-solid fa-file-pdf text-lg"></i></button>
                         </td>
                     </tr>
-                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
                         <td class="px-8 py-6">
                             <span class="text-xs font-bold text-zinc-500 group-hover:text-zinc-400 transition-colors">#GF-2026-0391</span>
                         </td>
                         <td class="px-8 py-6">
                             <div class="flex items-center gap-3">
-                                <img src="https://ui-avatars.com/api/?name=Isabella+Chen&background=27272a&color=a1a1aa" class="w-8 h-8 rounded-lg border border-zinc-800" alt="Avatar">
+                                <div class="avatar">
+                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                        <img src="https://ui-avatars.com/api/?name=Isabella+Chen&background=27272a&color=a1a1aa" />
+                                    </div>
+                                </div>
                                 <span class="text-xs font-bold text-zinc-300">Isabella Chen</span>
                             </div>
                         </td>
@@ -130,19 +125,23 @@
                             <span class="text-sm font-black text-white italic font-mono">$120.00</span>
                         </td>
                         <td class="px-8 py-6">
-                            <span class="px-2.5 py-1 bg-yellow-400/10 text-yellow-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-yellow-400/20">PENDING</span>
+                            <span class="badge badge-warning badge-outline badge-sm font-black tracking-widest uppercase py-3">PENDING</span>
                         </td>
                         <td class="px-8 py-6 text-right">
-                            <button class="text-zinc-600 hover:text-yellow-400 transition-colors"><i class="fa-solid fa-file-pdf text-lg"></i></button>
+                            <button class="btn btn-ghost btn-circle btn-sm text-zinc-600 hover:text-yellow-400"><i class="fa-solid fa-file-pdf text-lg"></i></button>
                         </td>
                     </tr>
-                    <tr class="group hover:bg-zinc-800/30 transition-colors">
+                    <tr class="group hover:bg-zinc-800/30 transition-colors border-zinc-800">
                         <td class="px-8 py-6">
                             <span class="text-xs font-bold text-zinc-500 group-hover:text-zinc-400 transition-colors">#GF-2026-0388</span>
                         </td>
                         <td class="px-8 py-6">
                             <div class="flex items-center gap-3">
-                                <img src="https://ui-avatars.com/api/?name=Sam+Rodriguez&background=27272a&color=a1a1aa" class="w-8 h-8 rounded-lg border border-zinc-800" alt="Avatar">
+                                <div class="avatar">
+                                    <div class="w-8 rounded-lg border border-zinc-800">
+                                        <img src="https://ui-avatars.com/api/?name=Sam+Rodriguez&background=27272a&color=a1a1aa" />
+                                    </div>
+                                </div>
                                 <span class="text-xs font-bold text-zinc-300">Sam Rodriguez</span>
                             </div>
                         </td>
@@ -151,22 +150,22 @@
                             <span class="text-sm font-black text-white italic font-mono">$250.00</span>
                         </td>
                         <td class="px-8 py-6">
-                            <span class="px-2.5 py-1 bg-red-400/10 text-red-400 text-[9px] font-black uppercase tracking-widest rounded-md border border-red-400/20">FAILED</span>
+                            <span class="badge badge-error badge-outline badge-sm font-black tracking-widest uppercase py-3">FAILED</span>
                         </td>
                         <td class="px-8 py-6 text-right">
-                            <button class="text-zinc-600 hover:text-red-400 transition-colors"><i class="fa-solid fa-file-pdf text-lg"></i></button>
+                            <button class="btn btn-ghost btn-circle btn-sm text-zinc-600 hover:text-red-400"><i class="fa-solid fa-file-pdf text-lg"></i></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="px-8 py-6 bg-zinc-950/20 border-t border-zinc-800/50 flex items-center justify-between">
+        <div class="card-actions bg-zinc-950/20 border-t border-zinc-800/50 flex items-center justify-between p-6">
             <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600 italic">Showing 3 of 154 Transactions</span>
-            <div class="flex items-center gap-2">
-                <button class="px-3 py-1 bg-zinc-900 border border-zinc-800 text-zinc-500 rounded-lg hover:text-white transition-all"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="px-3 py-1 bg-yellow-400 text-zinc-950 rounded-lg font-black text-[10px]">1</button>
-                <button class="px-3 py-1 bg-zinc-900 border border-zinc-800 text-zinc-500 rounded-lg hover:text-white transition-all font-black text-[10px]">2</button>
-                <button class="px-3 py-1 bg-zinc-900 border border-zinc-800 text-zinc-500 rounded-lg hover:text-white transition-all"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="join">
+                <button class="join-item btn btn-sm bg-zinc-900 border-zinc-800 text-zinc-500">«</button>
+                <button class="join-item btn btn-sm bg-yellow-400 text-zinc-950 font-black">1</button>
+                <button class="join-item btn btn-sm bg-zinc-900 border-zinc-800 text-zinc-500">2</button>
+                <button class="join-item btn btn-sm bg-zinc-900 border-zinc-800 text-zinc-500">»</button>
             </div>
         </div>
     </div>

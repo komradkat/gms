@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -9,6 +9,8 @@
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <!-- HTMX CDN -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <!-- Alpine.js CDN -->
@@ -17,6 +19,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            daisyui: {
+                themes: ["dark"],
+            },
+        }
+    </script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
@@ -69,21 +79,25 @@
     {% block extra_head %}{% endblock %}
 </head>
 
-<body class="bg-zinc-950 text-zinc-200 h-screen flex flex-col overflow-hidden" 
-      x-data="{ sidebarOpen: true }">
-    <div class="flex flex-col h-screen overflow-hidden">
+<body class="bg-zinc-950 text-zinc-200 h-screen overflow-hidden" x-data="{ sidebarOpen: true }">
+    <div class="flex flex-col h-full overflow-hidden">
         <!-- TOP BAR -->
         {% include 'includes/topbar.html' %}
 
-        <!-- MAIN BODY (Sidebar + Content) -->
-        <div class="flex flex-1 overflow-hidden">
-            <!-- SIDEBAR -->
-            {% include 'includes/sidebar.html' %}
+        <div class="drawer lg:drawer-open flex-1 overflow-hidden">
+            <input id="main-drawer" type="checkbox" class="drawer-toggle" />
+            
+            <div class="drawer-content flex flex-col h-full overflow-hidden">
+                <!-- CONTENT BODY -->
+                <main class="flex-1 overflow-auto p-4 md:p-8 bg-zinc-950">
+                    {% block content %}{% endblock %}
+                </main>
+            </div>
 
-            <!-- CONTENT BODY -->
-            <main class="flex-1 overflow-auto p-8 bg-zinc-950">
-                {% block content %}{% endblock %}
-            </main>
+            <div class="drawer-side z-40">
+                <label for="main-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+                {% include 'includes/sidebar.html' %}
+            </div>
         </div>
     </div>
 

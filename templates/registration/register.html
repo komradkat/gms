@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Forge • GymForge</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .logo-font { font-family: 'Space Grotesk', sans-serif; }
-        .glass {
-            background: rgba(24, 24, 27, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(63, 63, 70, 0.5);
-        }
     </style>
 </head>
-<body class="bg-zinc-950 text-zinc-200 h-full flex items-center justify-center p-6 relative overflow-hidden">
+<body class="bg-zinc-950 text-zinc-200 h-full flex items-center justify-center p-6 relative overflow-hidden" data-theme="dark">
     <!-- Background Decor -->
     <div class="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-400/10 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-400/5 rounded-full blur-[120px]"></div>
@@ -31,72 +27,78 @@
         </div>
 
         <!-- Register Card -->
-        <div class="glass rounded-[2rem] p-10 shadow-2xl">
+        <div class="card bg-zinc-900/80 backdrop-blur-xl border border-zinc-700/50 rounded-[2rem] p-10 shadow-2xl">
             <h2 class="text-2xl font-bold mb-8 text-zinc-100 italic">Start your journey</h2>
             
             <form action="{% url 'login' %}" class="space-y-6">
                 <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2 ml-1">Full Name</label>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text text-xs font-bold uppercase tracking-widest text-zinc-500 px-1">Full Name</span>
+                        </label>
                         <input type="text" placeholder="Juan Dela Cruz" 
-                            class="w-full bg-zinc-900/50 border border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all">
+                            class="input input-bordered w-full bg-zinc-900/50 border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all h-14">
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2 ml-1">Email Address</label>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text text-xs font-bold uppercase tracking-widest text-zinc-500 px-1">Email Address</span>
+                        </label>
                         <input type="email" placeholder="juan@example.com" 
-                            class="w-full bg-zinc-900/50 border border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all">
+                            class="input input-bordered w-full bg-zinc-900/50 border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all h-14">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2 ml-1">Select Plan</label>
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text text-xs font-bold uppercase tracking-widest text-zinc-500 px-1">Select Plan</span>
+                    </label>
                     <div class="grid grid-cols-3 gap-3">
-                        <label class="relative group cursor-pointer">
-                            <input type="radio" name="plan" class="peer hidden" checked>
-                            <div class="p-4 rounded-2xl bg-zinc-900/50 border border-zinc-700 peer-checked:border-yellow-400 peer-checked:bg-yellow-400/5 transition-all text-center">
-                                <span class="block text-[10px] font-black uppercase text-zinc-500 peer-checked:text-yellow-400">Monthly</span>
-                                <span class="block text-lg font-bold">₱1,499</span>
-                            </div>
+                        <label class="card bg-zinc-900/50 border border-zinc-700 p-4 rounded-2xl cursor-pointer hover:bg-zinc-800 transition-all text-center">
+                            <input type="radio" name="plan" class="radio radio-warning hidden" checked>
+                            <span class="block text-[10px] font-black uppercase text-zinc-500 mb-1">Monthly</span>
+                            <span class="block text-lg font-bold">₱1,499</span>
                         </label>
-                        <label class="relative group cursor-pointer">
-                            <input type="radio" name="plan" class="peer hidden">
-                            <div class="p-4 rounded-2xl bg-zinc-900/50 border border-zinc-700 peer-checked:border-yellow-400 peer-checked:bg-yellow-400/5 transition-all text-center">
-                                <span class="block text-[10px] font-black uppercase text-zinc-500 peer-checked:text-emerald-400">Quarterly</span>
-                                <span class="block text-lg font-bold">₱3,999</span>
-                            </div>
+                        <label class="card bg-zinc-900/50 border border-zinc-700 p-4 rounded-2xl cursor-pointer hover:bg-zinc-800 transition-all text-center">
+                            <input type="radio" name="plan" class="radio radio-success hidden">
+                            <span class="block text-[10px] font-black uppercase text-zinc-500 mb-1">Quarterly</span>
+                            <span class="block text-lg font-bold">₱3,999</span>
                         </label>
-                        <label class="relative group cursor-pointer">
-                            <input type="radio" name="plan" class="peer hidden">
-                            <div class="p-4 rounded-2xl bg-zinc-900/50 border border-zinc-700 peer-checked:border-yellow-400 peer-checked:bg-yellow-400/5 transition-all text-center">
-                                <span class="block text-[10px] font-black uppercase text-zinc-500 peer-checked:text-yellow-400">Annual</span>
-                                <span class="block text-lg font-bold">₱12,999</span>
-                            </div>
+                        <label class="card bg-zinc-900/50 border border-zinc-700 p-4 rounded-2xl cursor-pointer hover:bg-zinc-800 transition-all text-center">
+                            <input type="radio" name="plan" class="radio radio-warning hidden">
+                            <span class="block text-[10px] font-black uppercase text-zinc-500 mb-1">Annual</span>
+                            <span class="block text-lg font-bold">₱12,999</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2 ml-1">Password</label>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text text-xs font-bold uppercase tracking-widest text-zinc-500 px-1">Password</span>
+                        </label>
                         <input type="password" placeholder="••••••••" 
-                            class="w-full bg-zinc-900/50 border border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all">
+                            class="input input-bordered w-full bg-zinc-900/50 border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all h-14">
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2 ml-1">Confirm</label>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text text-xs font-bold uppercase tracking-widest text-zinc-500 px-1">Confirm</span>
+                        </label>
                         <input type="password" placeholder="••••••••" 
-                            class="w-full bg-zinc-900/50 border border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all">
+                            class="input input-bordered w-full bg-zinc-900/50 border-zinc-700 focus:border-yellow-400 rounded-2xl py-4 px-6 text-sm outline-none transition-all h-14">
                     </div>
                 </div>
 
-                <div class="flex items-start gap-3 px-1 mt-2">
-                    <input type="checkbox" id="terms" class="mt-1 w-4 h-4 rounded border-zinc-700 bg-zinc-900 accent-yellow-400 cursor-pointer shadow-[0_0_15px_rgba(234,179,8,0.1)]">
-                    <label for="terms" class="text-xs text-zinc-500 cursor-pointer select-none leading-relaxed">
-                        By creating an account, I agree to the <a href="#" class="text-zinc-300 font-bold hover:text-yellow-400">Terms of Service</a> and <a href="#" class="text-zinc-300 font-bold hover:text-yellow-400">Privacy Policy</a>.
+                <div class="form-control">
+                    <label class="label cursor-pointer justify-start gap-3 px-1">
+                        <input type="checkbox" class="checkbox checkbox-warning checkbox-sm rounded-md border-zinc-700 bg-zinc-900" id="terms">
+                        <span class="label-text text-xs text-zinc-500 select-none leading-relaxed">
+                            By creating an account, I agree to the <a href="#" class="text-zinc-300 font-bold hover:text-yellow-400">Terms of Service</a> and <a href="#" class="text-zinc-300 font-bold hover:text-yellow-400">Privacy Policy</a>.
+                        </span>
                     </label>
                 </div>
 
                 <button type="submit" 
-                    class="w-full bg-emerald-500 hover:bg-emerald-400 transition-all text-zinc-950 font-black py-4 rounded-2xl flex items-center justify-center gap-2 text-sm shadow-xl shadow-emerald-500/10 active:scale-[0.98] mt-6 uppercase tracking-widest">
+                    class="btn btn-success w-full text-zinc-950 font-black h-14 rounded-2xl flex items-center justify-center gap-2 text-sm shadow-xl shadow-emerald-500/10 active:scale-[0.98] mt-6 uppercase tracking-widest border-none">
                     <span>Create My Account</span>
                     <i class="fa-solid fa-crown"></i>
                 </button>
@@ -111,4 +113,5 @@
         </div>
     </div>
 </body>
+</html>
 </html>
